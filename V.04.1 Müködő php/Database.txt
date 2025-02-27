@@ -1,0 +1,8 @@
+CREATE DATABASE historia default CHARACTER set utf8 COLLATE utf8_hungarian_ci;
+
+CREATE TABLE regisztralas( 
+id int AUTO_INCREMENT PRIMARY KEY, 
+keresztnev varchar(100) NOT NULL, 
+vezeteknev varchar(100), 
+email varchar(100) not null UNIQUE, 
+jelszo varchar(100));
