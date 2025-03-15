@@ -1,0 +1,319 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header{
+    /*background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(kep.jpg);*/
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    min-height: 100px;
+
+}
+
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 30px;
+    min-height: 400px;
+    margin-right: 60px;
+    font-size: 17px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.5 ease;
+}
+
+ul li a:hover{
+    background-color: white;
+    color: black;
+
+}
+
+ul li.active a{
+    background-color: white;
+    color: black;
+}
+
+.main{
+    max-width: 1200px;
+    margin: auto;
+
+}
+
+
+.title{
+    position: absolute;
+    /* top: 47%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+
+}
+
+.title h1{
+    color: white;
+    font-size: 70px;
+}
+
+.button{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+body{
+    background-color: darkcyan;
+    background-image: url(kep2.jpg);
+    /* background-image: url(kep2.jpg); */
+}
+.idovonal{
+    width: 1000px;
+    margin: 100px auto;
+    position: relative;
+    display: none;
+    /*blur effect kéne*/
+}
+.idovonal::after{
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(#FF0000, #FBFAF3, #2B7239);
+    border-radius: 50px;
+    animation: LineAnimated 5s linear forwards;
+    z-index: -1;
+}
+@keyframes LineAnimated{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+}
+.container{
+    width: 42%;
+    position: relative;
+    padding: 30px 40px; /*távolság*/
+    animation: Animate-Container 1s linear forwards;
+    opacity: 0;
+    animation-delay: var(--dly);
+}
+@keyframes Animate-Container{
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.container:nth-child(even){
+    right: -50%;
+}
+.container:nth-child(odd)::before{
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(#FF0000, #FBFAF3, #2B7239);
+    top: 0;
+    right: -7px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.container:nth-child(even)::before{
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(#FF0000, #FBFAF3, #2B7239);
+    top: 0;
+    left: -12.5px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.szoveg{
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #191919;
+    backdrop-filter: blur(10px);
+    display: grid;
+    gap: 5px;
+}
+.szoveg h2{
+    font-size: 25px;
+}
+.szoveg p{
+    font-size: 16px;
+    /*margin: 10px, 0;*/
+    margin-top: 10px;
+    text-align: justify;
+}
+/*tovább olvasok gomb*/
+.gomb {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.gomb {
+    background-color:antiquewhite; 
+    color: black; 
+}
+.gomb:hover {
+    /*átmnetes gomb lenne, csak nem sikerül (piros-fehér-zöld) :(((
+    background-color: linear-gradient(#FF0000, #FBFAF3, #2B7239); 
+    */
+    background-color:khaki;
+    color: black;
+}
+
+.valasztogomb1{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #04AA6D;
+}
+
+.valasztogomb1:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.valasztogomb2{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+.valasztogomb2:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/*idővonal elrejtése*/
+#bezar{
+    display: none;
+}
+
+/*idővonal elrejtése*/
+#bezar2{
+    display: none;
+    /*z-index: 10;*/
+}
+
+
+.idovonal_valaszto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    
+}
+/*egyetemes idővonal*/
+.eidovonal{
+    width: 1000px;
+    margin: 100px auto;
+    position: relative;
+    display: none;
+} 
+.eidovonal::after{
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(#1164d1, #FBFAF3, #e2df09);
+    border-radius: 50px;
+    animation: LineAnimated 5s linear forwards;
+    z-index: -1;
+
+}
+
+
+
+/* menj fel gomb */
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }
+
+  /* media */
+@media screen and (max-width: 900px) {
+        body{
+            max-width: 900px;
+        }
+        
+        /* Place the timelime to the left */
+        .idovonal::after {
+            left: 40px;
+        }
+        
+        /* Full-width containers */
+        .container {
+            max-width: 100%;
+            padding: 30px 40px; /*távolság*/
+            /* padding-left: 70px;
+            padding-right: 25px; */
+        }
+        
+        /* Make sure that all arrows are pointing leftwards */
+        .container::before {
+            left: 33px;
+            /*border: medium solid white;*/
+            border-width: 10px 10px 10px 0;
+        }
+      
+        /* Make sure all circles are at the same spot */
+        .bal::after, .jobb::after {
+            left: 60px;
+        }
+        
+        /* Make all right containers behave like the left ones */
+        .jobb {
+            left: 45px;
+        }
+}
+
+/*AAAAHHHHHHHHH*/
+
+
+
+
