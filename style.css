@@ -285,6 +285,9 @@ body{
         .idovonal::after {
             left: 40px;
         }
+        .eidovonal::after {
+            left: 40px;
+        }    
         
         /* Full-width containers */
         .container {
@@ -316,4 +319,343 @@ body{
 
 
 
+.div {
+    /*Pozíciónálások-Méretezések*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+
+    /*Háttér-Stílusok*/
+    z-index: 1;
+    outline: none;
+}
+
+.kontent {
+    /*Pozíciónálások-Méretezések*/
+    width: 400px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
+
+
+    /*Háttér-Stílusok*/
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    outline: none;
+}
+
+/*Form-div1-gomb-uzenet*/
+
+.input {
+    /*Pozíciónálások-Méretezések*/
+    display: block;
+    margin: auto;
+    height: 30px;
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid white;
+    backdrop-filter: blur(5px);
+
+
+    /*Háttér-Stílusok*/
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+::placeholder {
+    /*Pozíciónálások-Méretezések*/
+    font-size: 15px;
+
+    /*Háttér-Stílusok*/
+    color: white;
+}
+
+/*Div1 osztálya:*/
+.hidden {
+    display: none;
+}
+
+.close {
+    padding: 5px;
+    font-size: 30px;
+    float: right;
+
+    /*Háttér-Stílusok*/
+    cursor: pointer;
+    color: white;
+}
+
+/*Regisztrációs gomb*/
+.rgomb {
+    /*Pozíciónálások-Méretezések*/
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+
+
+    /*Háttér-Stílusok*/
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    transition: transform 0.5s ease;
+    backdrop-filter: blur(5px);
+}
+
+.rgomb:hover {
+    /*Pozíciónálások-Méretezések*/
+    transform: scale(1.2);
+
+
+    /*Háttér-Stílusok*/
+    cursor: pointer;
+    border-color: rgb(59, 227, 13);
+    color: rgb(59, 227, 13);
+
+}
+
+
+#bejelink {
+    /*Háttér-Stílusok*/
+    color: rgb(59, 227, 13);
+}
+
+#bejelink:hover {
+    /*Háttér-Stílusok*/
+    color: white;
+}
+
+#regilink {
+    color: rgb(59, 227, 13);
+}
+
+#regilink:hover {
+    color: white;
+
+}
+
+#h2b {
+    /*Pozíciónálások-Méretezések*/
+    text-align: center;
+    padding: 10px;
+
+
+    /*Háttér-Stílusok*/
+    color: white;
+}
+
+p{
+    color: white;
+    padding: 15px;
+}
+
+.emlekezzram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px; 
+}
+
+.emlekezzram input {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    
+}
+
+.emlekezzram label {
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#message{
+    display: none;
+    color: white;
+    margin-top: 5px;
+}
+
+/* első világháború */
+
+#elsovh_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: burlywood;
+    color: white;
+    background-image: url(fenykepek/1vh1.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#elsovh_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+#alcim {
+    background: #333;
+    color: #fff;
+    padding: 5px ; 
+    text-align: center;
+}
+
+h4 {
+    background: #333;
+    color: #fff;
+    padding: 5px ; 
+    text-align: center;
+    
+    
+}
+
+section {
+    padding: 20px; 
+    margin: 20px auto; 
+    max-width: 800px;
+    background: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    
+    
+}
+
+.fejezetcim {
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px; 
+}
+
+.elsovh_div {
+    margin-bottom: 15px;
+    text-align: justify; 
+}
+
+
+#gyarmatKep {
+    height: 550px;
+    width: 750px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+#szovetsegekKep {
+    height: 450px;
+    width: 550px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#kontenerek{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+#kontener1{
+    width: 33.33%;
+    border-radius: 5%;
+}
+
+#kontener2{
+    width: 33.33%;
+    border-radius: 5%;
+    
+}
+
+#kontener1 img, #kontener2 img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+#kontener1 p, #kontener2 p{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+#szarajevo{
+   
+    display: flex;
+}
+
+#szarajevo img{
+    width: 40%;
+    border-radius: 5%;
+}
+
+#szarajevo p{
+    width: 60%;
+}
+
+
+
+#Esemeny1915{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+#Gorlicei{
+    width: 70%;
+    border-radius: 5%;
+}
+
+#sargaszold{
+    width: 70%;
+    border-radius: 5%;
+    
+}
+
+#Gorlicei img, #sargaszold img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+#sargaszold img{
+    height: 270px;
+}
+
+#Gorlicei p, #sargaszold p{
+    text-align: center;
+    font-weight: bold;
+}
+
+#verdunicsata{
+    display: flex;
+}
+
+#verdunicsata img{
+    width: 40%;
+    border-radius: 5%;
+}
+
+#verdunicsata p{
+    width: 60%;
+}
+
+
+.elsovh_kepek{
+    width: 70%;
+    border-radius: 5%;
+}

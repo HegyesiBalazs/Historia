@@ -13,7 +13,6 @@
             <ul>
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Rólunk</a></li>
-                <li><a href="#">Bejelentkezés</a></li>
                 <li><a href="#" id="regisztracio">Bejelentkezés</a></li>
             </ul>
         </div>
@@ -25,7 +24,62 @@
     </header>
 
 
+    <div id="div1" class="div hidden">
+        <div class="kontent">
+            <span id="bezarGomb" class="close">&times;</span>
+            <h2 id="h2b">Regisztráció</h2>
+            <form method="POST" action="index.php">
+                <label for="firstname"></label>
+                <input type="text" id="firstname" class="input" placeholder="Vezetéknév" autocomplete="off" name="vezeteknev" required>
+    
+                <label for="lastname"></label>
+                <input type="text" id="lastname" class="input" placeholder="Keresztnév" autocomplete="off" name="keresztnev" required>
+    
+                <label for="email"></label>
+                <input type="email" id="email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+                
+                <label for="password"></label>
+                <input type="password" id="password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
+                <p id="message">A jelszó <span id="strenght"></span></p>
 
+                <label for="password2"></label>
+                <input type="password" id="password2" class="input" placeholder="Jelszó mégegyszer" autocomplete="off" required>
+                
+                <button class="rgomb" type="submit">Regisztráció</button>
+                <p>Van már fiókod? <a href="#" id="bejelink">Jelentkezz be!</a></p>
+
+                
+            </form>
+        </div>
+    </div>
+
+    <div id="div2" class="div hidden">
+        <div class="kontent">
+            <span class="close" id="bezarGomb2">&times;</span>
+            <h2 id="h2b">Bejelentkezés</h2>
+            <form method="POST" action="index.php">
+                <label for="email"></label>
+                <input type="email" id="email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+    
+                <label for="password"></label>
+                <input type="password" id="password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
+    
+                <button class="gomb" type="submit">Bejelentkezés</button>
+    
+                
+                <p>Nincs még fiókod? <a href="#" id="regilink">Regisztrálj!</a></p>
+
+                <div class="emlekezzram">
+                    <input type="checkbox" id="emlekezzRam" name="emlekezzRam">
+                    <label for="emlekezzRam">Emlékezz rám</label>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Kijelentkezés gomb (Ez jelenik meg, ha be vagy jelentkezve) -->
+<!-- <button id="logout">Kijelentkezés</button> -->
 
 
 
@@ -397,6 +451,6 @@
     <footer>
         itten lehetne valami
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
