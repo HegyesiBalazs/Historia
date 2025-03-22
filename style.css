@@ -285,6 +285,9 @@ body{
         .idovonal::after {
             left: 40px;
         }
+        .eidovonal::after {
+            left: 40px;
+        }    
         
         /* Full-width containers */
         .container {
