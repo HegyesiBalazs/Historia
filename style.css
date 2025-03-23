@@ -484,7 +484,6 @@ p{
     color: white;
     margin-top: 5px;
 }
-<<<<<<< HEAD
 
 /* első világháború */
 
@@ -541,11 +540,6 @@ section {
     color: white;
     border-bottom: 2px solid white;
     padding-bottom: 10px; 
-}
-
-.elsovh_div {
-    margin-bottom: 15px;
-    text-align: justify; 
 }
 
 
@@ -660,5 +654,27 @@ section {
     width: 70%;
     border-radius: 5%;
 }
-=======
->>>>>>> 4308a7867221806d0c432b7382fcf36758383efd
+
+/* a két világháború között */
+
+#ketvhkozt_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: burlywood;
+    color: white;
+    background-image: url(fenykepek/1vh1.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#ketvhkozt_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
