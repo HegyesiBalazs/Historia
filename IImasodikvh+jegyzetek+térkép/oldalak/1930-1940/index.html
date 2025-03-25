@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Világtörténelem: 1930-1940</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay" id="overlay" onclick="toggleJegyzet()"></div>
+    <div class="jegyzet" id="jegyzet">
+        <button class="jegyzet-tab" onclick="toggleJegyzet()">Jegyzetek</button>
+        <h2>Jegyzet</h2>
+        <textarea id="jegyzetSzoveg" rows="5" placeholder="Írj ide..."></textarea>
+        <br>
+        <button onclick="saveNotes()">Mentés fájlba</button>
+        <button onclick="sendNotes()">Elküldés</button>
+        <button onclick="toggleJegyzet()">Bezárás</button>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Világtörténelem: 1930-1940</h1>
+            <p>világválság, Út a világháborúhoz</p>
+        </header>
+
+        <section class="timeline">
+            <h2>Fontos események idővonala</h2>
+
+            <div class="event">
+                <h3>1929-1939: A nagy gazdasági világválság</h3>
+                <p> z 1929. október 29-én bekövetkezett New York-i tőzsdekrach indította el a világméretű gazdasági válságot. 
+                    A bankok csődje, a munkanélküliség drámai növekedése (az USA-ban 25%-ra emelkedett) és a kereskedelem összeomlása az 1930-as évek nagy részében sújtotta a világot. 
+                    Ez a válság politikai instabilitást szült, amely diktatúrák felemelkedését segítette elő.
+                </p>
+            </div>
+
+            <div class="event">
+                <h3>Benito Mussolini Története (1930-1940)</h3>
+                <p>Benito Mussolini, Olaszország fasiszta diktátora, az 1930-as években jelentős szerepet játszott Európa politikai és katonai életében.
+                    Az 1930-as évek elejére Mussolini már teljesen megszilárdította hatalmát Olaszországban. 
+                    1930-ban a "Fasizmus Doktrínája" című művében részletezte ideológiáját, amely az állam mindenhatóságát hirdette. 
+                    Gazdasági téren folytatta a "Földért Folytatott Harcot", amelynek keretében például 1935-ben lecsapolták a Pontine-mocsarakat, hogy új mezőgazdasági területeket nyerjenek.
+                    1935-ben Mussolini elindította Olaszország invázióját Etiópia(akkoriban inkább Abesszína) ellen, hogy gyarmati birodalmat építsen. 
+                    A modern fegyverekkel felszerelt olasz hadsereg gyorsan legyőzte az etióp erőket főleg a harci gázok által volt sikeres, és 1936-ban Etiópiát az Olasz Birodalom részévé tették. 
+                    Ez a lépés nemzetközi elszigeteltséghez vezetett, és Olaszország kilépett a Népszövetségből.
+                    1936-ban Mussolini szorosabb kapcsolatot alakított ki Adolf Hitlerrel, ami a Róma-Berlin tengely létrejöttéhez vezetett. 
+                    Ugyanebben az évben Olaszország támogatást nyújtott Francisco Franco fasiszta erőinek a spanyol polgárháborúban, tovább mélyítve a Németországgal való szövetséget. 
+                    1939-ben aláírták az "Acélpaktumot", amely hivatalosan is összefűzte Olaszországot és Németországot.
+                    1940-ben, amikor Németország már jelentős sikereket ért el Európában, Mussolini úgy döntött, hogy Olaszország belép a második világháborúba a tengelyhatalmak oldalán. 
+                    Június 10-én hadat üzent Nagy-Britanniának és Franciaországnak, abban a hitben, hogy gyors győzelmet arathat. 
+                    Az olasz hadsereg azonban gyengén teljesített, és hamarosan kiderült, hogy az ország nincs felkészülve egy hosszabb konfliktusra.
+                </p>
+            </div>
+
+            <div class="event">
+                <h3>1933: Adolf Hitler hatalomra jutása</h3>
+                <p>Adolf Hitler hatalomra jutása Németországban 1933-ban a weimari köztársaság bukásának és a náci diktatúra kiépülésének kezdete volt. 
+                    A folyamat 1932-ben gyorsult fel, amikor a Nemzetiszocialista Német Munkáspárt (NSDAP) az július 31-i választásokon 37,3%-kal (230 mandátum) a Reichstag legnagyobb pártjává vált. 
+                    A gazdasági válság és a kommunista fenyegetés miatti félelmek növelték a támogatottságukat, különösen a középosztály és a munkanélküliek körében.
+                    1933. január 30-án Franz von Papen volt kancellár és konzervatív politikusok nyomására Paul von Hindenburg köztársasági elnök kinevezte Hitlert kancellárrá, abban a hitben, hogy a koalíciós kormányban "megszelídíthetik". 
+                    A kabinetben kezdetben csak két náci volt (Hitler és Wilhelm Frick belügyminiszter), de ez gyorsan megváltozott. Február 27-én a Reichstag felgyújtása – amit a nácik egy kommunista merénylőnek, Marinus van der Lubbenek tulajdonítottak – ürügyet szolgáltatott a hatalom megszilárdítására. 
+                    Másnap, február 28-án Hindenburg aláírta a "Reichstag-tűz rendeletet", amely felfüggesztette az alapvető polgári jogokat, lehetővé téve a politikai ellenfelek (főleg kommunisták és szociáldemokraták) letartóztatását.
+                    Március 5-én új választásokat tartottak, ahol az NSDAP 43,9%-ot ért el, de koalícióban a Német Nemzeti Néppárttal (DNVP) megszerezte a többséget. 
+                    Március 23-án a Reichstag elfogadta a felhatalmazási törvényt (Gesetz zur Behebung der Not von Volk und Reich), amely lehetővé tette Hitlernek, hogy a parlament jóváhagyása nélkül hozzon törvényeket, фактически diktatórikus hatalmat adva neki. 
+                    A törvényt a katolikus Centrum Párt támogatásával fogadták el, miután Hitler ígéretet tett az egyház védelmére – amit később megszegett.
+                    A hatalom megszilárdítása gyors lépésekkel folyt: július 14-én az NSDAP-t tették az egyetlen legális párttá, betiltva az összes többit. 
+                    A szakszervezeteket felszámolták, helyükre a Német Munkafront (DAF) lépett. A sajtót cenzúrázták, a Gestapo (titkosrendőrség) pedig megkezdte az ellenállók üldözését. 
+                    1934. augusztus 2-án Hindenburg halála után Hitler egyesítette a kancellári és az elnöki posztot, felvéve a "Führer und Reichskanzler" címet. 
+                    Az Éjszakák Hosszú Kése (Juni 30. – Juli 2., 1934) során likvidálták az SA (Sturmabteilung) vezetőségét, köztük Ernst Röhmöt, megszüntetve a párton belüli rivális hatalmi centrumot. 
+                    Ezzel Hitler abszolút hatalma teljessé vált.
+                </p>
+            </div>
+
+            <div class="event">
+                <h3>1933-1939: Hitler terjeszkedése a háború előtt</h3>
+                <p>Miután 1933-ban hatalomra jutott, Adolf Hitler azonnal megkezdte Németország militarizálását. 
+                    1935. március 16-án bevezette a sorkatonaságot, 1936. március 7-én bevonult a Rajna-vidékre. 
+                    1938-ban az Anschlussal annektálta Ausztriát (március 12.), majd a müncheni egyezménnyel (szeptember 29.) a Szudéta-vidéket. 
+                    1939. március 15-én megszállta Csehszlovákiát, létrehozva a Protektorátust és a Szlovák Bábállamot, ezzel bizonyítva az appeasement kudarcát.
+                </p>
+            </div>
+
+            <div class="event">
+                <h3>1931-1939: A japán terjeszkedés Ázsiában</h3>
+                <p>Japán terjeszkedése az 1930-as években gazdasági és stratégiai célokat szolgált. 
+                    1931. szeptember 18-án a japán Kwantung-hadsereg megrendezte a mukdeni incidenst – egy vasútvonal elleni állítólagos kínai támadást –, amit ürügyként használva megszállták Mandzsúriát. 1932-ben létrehozták a Mandzsukuo bábállamot, Pu Ji, az utolsó kínai császár vezetésével. 
+                    A Népszövetség tiltakozott, de Japán kilépett a szervezetből 1933-ban, jelezve, hogy nem tűr nemzetközi ellenőrzést.
+                    1937. július 7-én a Marco Polo-híd incidenssel kitört a második kínai-japán háború. 
+                    Japán gyors offenzívát indított: elfoglalta Pekinget (július 29.), Tiencsint, majd Sanghajt (november 12.) heves harcok után.
+                    1937 decemberében Nankingot is bevették, amit a nankingi mészárlás követett: hat hét alatt 200-300 ezer civilt és hadifoglyot gyilkoltak meg, gyakran brutális kegyetlenséggel. 
+                    Japán célja a nyersanyagok (pl. szén, vas) megszerzése és a "Nagy Kelet-Ázsiai Közös Jóléti Szféra" létrehozása volt, amely Ázsia japán uralmát hirdette a nyugati gyarmatosítás ellenében.
+                </p>
+            </div>
+
+            <div class="event">
+                <h3>1936-1939: A spanyol polgárháború</h3>
+                <p>A spanyol polgárháború (1936–1939) Spanyolország modern történetének egyik legmeghatározóbb és legtragikusabb eseménye volt. 
+                    Az 1930-as évek elejére az ország mély politikai, társadalmi és gazdasági válságba süllyedt. 
+                    A Második Spanyol Köztársaság 1931-es megalakulása után a baloldali reformok (földreform, egyház és állam szétválasztása, munkásjogok) éles ellenállást váltottak ki a konzervatív erőkből, mint a nagybirtokosok, a katolikus egyház és a hadsereg. 
+                    A politikai instabilitást fokozta a jobboldali és baloldali csoportok közötti erőszak, amely 1936-ra polgárháborúvá eszkalálódott.
+                    A háború 1936. július 17-én kezdődött, amikor nacionalista tábornokok, élükön Francisco Francóval, katonai puccsot kíséreltek meg a baloldali Népi Front kormánya ellen. 
+                    A puccs részben kudarcot vallott, mert a nagyvárosokban (Madrid, Barcelona) a munkások és a baloldali milíciák ellenálltak. 
+                    Ez két táborra osztotta az országot: a republikánusokra (baloldali pártok, szakszervezetek) és a nacionalistákra (hadsereg, monarchisták, falangisták).
+                    A háború számos kulcsfontosságú ütközetet hozott, mint a Madridi ostrom (1936–1939), ahol a republikánusok hősiesen védekeztek („¡No pasarán!”), a Jarama-i csata (1937. február) és a Guadalajarai csata (1937. március), amelyekben a republikánusok megállították a nacionalista előrenyomulást, valamint az Ebrói csata (1938. július–november), a háború leghosszabb és legvéresebb ütközete, amely kimerítette a republikánusokat. 
+                    A Katalóniai offenzíva (1938. december – 1939. február) során Franco elfoglalta Barcelonát, ami a republikánus ellenállás összeomlásához vezetett.
+                    A konfliktus gyorsan nemzetközi dimenziót öltött: Németország a Condor Légiót küldte (1937-ben lebombázták Guernicát), Olaszország 50–75 ezer katonát, a Szovjetunió fegyvereket és a Nemzetközi Brigádokat támogatta. 
+                    Nagy-Britannia és Franciaország „nem-beavatkozási politikát” folytattak, ami a republikánusok hátrányára vált.
+                    A háború mély társadalmi sebeket hagyott: kb. 500 ezer ember halt meg, és a konfliktus inspirálta a művészetet, mint Pablo Picasso *Guernica* című festményét. 
+                    1939. április 1-jén Franco győzelmével ért véget a háború, és diktatúrája 1975-ig tartott, tízezreket kivégezve vagy bebörtönözve.
+                </p>
+            </div>
+
+            <div class="event">
+                <h3>1939: A második világháború kezdete</h3>
+                <p>A háború előzménye az 1939. augusztus 23-án aláírt Molotov–Ribbentrop-paktum volt, amelynek titkos záradéka Lengyelország és Kelet-Európa felosztásáról szólt Németország és a Szovjetunió között. 
+                    Augusztus 25-én Nagy-Britannia és Lengyelország kölcsönös védelmi egyezményt kötött, ám ez nem rettentette el Hitlert. 1939. szeptember 1-jén hajnali 4:45-kor a német Schleswig-Holstein csatahajó tüzet nyitott a danzigi Westerplatte erődre, megkezdve Lengyelország invázióját. A Blitzkrieg-taktika – a Luftwaffe légitámadásai, a páncélosok gyors előrenyomulása és a gyalogság koordinált támadása – villámgyors sikert hozott: Varsót szeptember 27-re elfoglalták.
+                    Szeptember 3-án Nagy-Britannia és Franciaország ultimátumot küldött Németországnak, amelynek lejárta után (11:00-kor) hadat üzentek, ezzel hivatalosan kitört a második világháború. 
+                    Szeptember 17-én a Szovjetunió is bevonult Kelet-Lengyelországba a paktum értelmében, és október 6-ra Lengyelországot teljesen felosztották. 
+                    A nyugati fronton azonban a "furcsa háború" (Phoney War) időszaka következett, ahol a szövetségesek nem indítottak jelentős offenzívát Németország ellen, így Hitler további terveire koncentrálhatott.
+                </p>
+                <strong>1940: A Blitzkrieg és Franciaország bukása</strong>
+                <p>1940-ben Németország a Fall Gelb (Sárga Terv) hadművelettel folytatta terjeszkedését Nyugat-Európában. 
+                    Április 9-én Dániát és Norvégiát támadták meg: Dánia pár óra alatt kapitulált, míg Norvégiában a Narvik körüli harcok június 10-ig tartottak, biztosítva a svéd vasérc szállítását. 
+                    Május 10-én megkezdődött a nyugati offenzíva: Hollandia május 14-re, Belgium május 28-ra esett el. 
+                    A döntő csapást az Ardennekben, a Maginot-vonal megkerülésével vitték be, ahol Guderian páncélosai áttörtek, és május 20-ra elérték a La Manche-csatornát, bekerítve a szövetséges erőket Dunkerque-nél.
+                    A dunkerque-i evakuáció (Dinamó Hadművelet, május 26. – június 4.) során 338 ezer szövetséges katonát mentettek ki, de fegyvereik nagy részét hátrahagyták. 
+                    Június 10-én Olaszország is belépett a háborúba Németország oldalán. Franciaország ellen a Fall Rot (Piros Terv) június 5-én indult: Párizs június 14-én elesett, és június 22-én a compiègne-i fegyverszünetben Franciaország kapitulált. 
+                    Az országot felosztották: északra a német megszállási zóna, délre a Vichy-kormány bábállama került.
+                    Ez a győzelem a Blitzkrieg hatékonyságát és a szövetségesek felkészületlenségét mutatta meg.
+                </p>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script> 
+</body>
+</html>

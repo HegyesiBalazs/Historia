@@ -1,0 +1,46 @@
+A "domain csinálás" alatt feltételezem, hogy egy domain név regisztrálását és beállítását érted, amit egy weboldalhoz szeretnél használni. Az alábbiakban lépésről lépésre elmagyarázom, hogyan tudsz domain nevet létrehozni és használni, magyar kontextusban is figyelembe véve a lehetőségeket.
+
+1. Domain név kiválasztása
+Mi az a domain?: A domain név az internetes "címed", például pelda.hu vagy pelda.com, amit az emberek a böngészőbe írnak, hogy megtalálják a weboldaladat.
+Tippek a választáshoz:
+Legyen rövid, könnyen megjegyezhető és írható.
+Kapcsolódjon a célodhoz (pl. céged neve, márkád, vagy amit kínálsz).
+Kerüld a bonyolult írásjeleket vagy számokat, ha nem szükséges.
+Magyarországon népszerű a .hu végződés, de választhatsz .com, .eu vagy más nemzetközi végződést is.
+2. Ellenőrizd a domain elérhetőségét
+Nem "csinálhatsz" teljesen új domain nevet a semmiből; a domaineket regisztrálni kell egy hivatalos regisztrátoron keresztül, és csak olyat választhatsz, ami még nincs lefoglalva.
+Hol ellenőrizheted?:
+Magyar .hu domain esetén: látogass el a Domain.hu oldalra, és használd a keresőjüket.
+Nemzetközi domainekhez (pl. .com, .org): olyan szolgáltatókat használhatsz, mint a Namecheap, GoDaddy, vagy magyar szolgáltatók, például a Rackhost vagy a Dotroll.
+Példa: Ha a pelda.hu szabad, regisztrálhatod. Ha nem, próbálj variációkat (pl. peldaweb.hu).
+3. Domain regisztráció
+Válassz regisztrátort: Magyarországon .hu domaineket csak a Hivatalos Nyilvántartók (pl. Rackhost, Dotroll, Webonic) keresztül regisztrálhatsz. Nemzetközi domainekhez bármelyik globális regisztrátor megfelel.
+Lépések:
+Látogass el a választott regisztrátor weboldalára.
+Írd be a kívánt domain nevet a keresőbe.
+Ha szabad, tedd a kosárba, és válaszd ki, hány évre regisztrálod (általában 1-2 év az alap).
+Add meg az adataidat (név, cím, e-mail), mivel a domain tulajdonos adatai nyilvánosak lehetnek a WHOIS adatbázisban, hacsak nem kérsz adatvédelmet.
+Fizesd ki a díjat (.hu esetén kb. 2000-3000 Ft/év, .com esetén 10-15 USD/év, szolgáltatótól függően).
+Megjegyzés: A .hu domaineknél a regisztráció után van egy 8 napos várakozási idő, ha nem kéred sürgősségi eljárással.
+4. Domain összekapcsolása weboldallal (DNS beállítások)
+A domain önmagában csak egy név, össze kell kötni egy tárhellyel (hosting), ahol a weboldalad fut.
+Szükséges lépések:
+Tárhely vásárlása: Ha még nincs, vegyél tárhelyet egy szolgáltatótól (pl. Rackhost, Dotroll, vagy nemzetközi cégek, mint a Bluehost).
+DNS beállítások: A regisztrátor kezelőfelületén állítsd be a domain névszervereit (nameservers) a tárhelyszolgáltató által megadott értékekre. Például:
+ns1.tárhelyszolgáltató.hu
+ns2.tárhelyszolgáltató.hu
+Várakozás: A DNS frissítése 24-48 órát is igénybe vehet.
+5. Weboldal létrehozása
+Ha a domain és a tárhely össze van kötve, feltöltheted a weboldaladat a tárhelyre (pl. WordPress, HTML fájlok stb.).
+A böngészőben a domain neved beírásával ellenőrizheted, hogy működik-e.
+Példa folyamat (magyarul, .hu domainnel):
+Elmész a Rackhost.hu-ra.
+Beírod, hogy pelda.hu, és látod, hogy szabad.
+Kosárba teszed, kifizeted (kb. 2000 Ft/év).
+A tárhelyedhez kapott névszervereket (pl. ns1.rackhost.hu, ns2.rackhost.hu) beállítod a Rackhost domain kezelőjében.
+Feltöltöd a weboldaladat a tárhelyre, és kész!
+Extra tippek
+Adatvédelem: Kérj WHOIS adatvédelmet, ha nem akarod, hogy a személyes adataid nyilvánosak legyenek.
+SSL tanúsítvány: Biztosíts HTTPS-t a domainhez (ingyenesen beszerezhető pl. Let’s Encrypt segítségével a tárhelyszolgáltatódtól).
+Hosszabbítás: Ne felejtsd el évente megújítani a domaint, különben elveszítheted!
+Ha konkrét szolgáltatóval vagy lépéssel kapcsolatban van kérdésed, szólj, és segítek! Hogyan állsz most a folyamattal?
