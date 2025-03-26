@@ -462,6 +462,7 @@ body{
 p{
     color: white;
     padding: 15px;
+    
 }
 
 .emlekezzram {
@@ -682,5 +683,59 @@ h4 {
     padding: 20px ; 
     text-align: center;
 }
+
+.ketvhkozt_kepek{
+    width: 65%;
+    border-radius: 8%;
+    padding-top: 50px;
+    
+    
+}
+
+#ducekep{
+    width: 55%;
+    border-radius: 5%;
+    padding-top: 50px;
+}
+
+#hitler{
+   
+    display: flex;
+}
+
+#hitler img{
+    width: 50%;
+    border-radius: 5%;
+}
+
+#hitler p{
+    width: 60%;
+    padding-left: 30px;
+}
+
+#sztalin{
+   
+    display: flex;
+}
+
+#sztalin img{
+    width: 50%;
+    border-radius: 5%;
+}
+
+#sztalin p{
+    width: 60%;
+    padding-left: 30px;
+}
+
+#szovjet_terjeszkedes{
+    width: 100%;
+    border-radius: 8%;
+    padding-top: 50px;
+}
+
+
+
+
 
 
