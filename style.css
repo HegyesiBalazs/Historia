@@ -498,7 +498,6 @@ p{
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: burlywood;
     color: white;
     background-image: url(fenykepek/1vh1.jpg);
     background-size: cover; 
@@ -667,7 +666,6 @@ h4 {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: burlywood;
     color: white;
     background-image: url(fenykepek/ketvhkozt_kep2.jpg);
     background-size: cover; 
@@ -734,7 +732,36 @@ h4 {
     padding-top: 50px;
 }
 
+/* A hidegháború */
 
+#hideghaboru_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url(fenykepek/coldwar3.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#hideghaboru_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+.hideghaboru_kepek{
+    width: 65%;
+    border-radius: 8%;
+    padding-top: 50px;
+    
+    
+}
 
 
 
