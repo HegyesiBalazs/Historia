@@ -79,11 +79,12 @@ body{
 }
 .idovonal{
     width: 1000px;
-    margin: 100px auto;
+    margin: 500px auto;
     position: relative;
     display: none;
-    /*blur effect kéne*/
+    
 }
+
 .idovonal::after{
     content: "";
     position: absolute;
@@ -153,9 +154,9 @@ body{
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 10px #191919;
-    backdrop-filter: blur(10px);
     display: grid;
     gap: 5px;
+    backdrop-filter: blur(10px);
 }
 .szoveg h2{
     font-size: 25px;
@@ -239,7 +240,7 @@ body{
 /*egyetemes idővonal*/
 .eidovonal{
     width: 1000px;
-    margin: 100px auto;
+    margin: 500px auto;
     position: relative;
     display: none;
 } 
@@ -757,8 +758,6 @@ h4 {
     width: 65%;
     border-radius: 8%;
     padding-top: 50px;
-    
-    
 }
 
 
