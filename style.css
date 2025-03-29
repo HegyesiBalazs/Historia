@@ -739,7 +739,7 @@ h4 {
     margin: 0;
     padding: 0;
     color: white;
-    background-image: url(fenykepek/coldwar3.jpg);
+    background-image: url(fenykepek/coldwar1.jpg);
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed; 
@@ -756,6 +756,103 @@ h4 {
 
 .hideghaboru_kepek{
     width: 65%;
+    border-radius: 8%;
+    padding-top: 50px;
+}
+
+#nato_vsz_Kontenerek{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+#NatoKontener{
+    width: 33.33%;
+    border-radius: 5%;
+    padding-top: 35px;
+    
+}
+
+#VszKontener{
+    width: 33.33%;
+    border-radius: 5%;
+    
+}
+
+#NatoKontener img, #VszKontener img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+#NatoKontener p, #VszKontener p{
+    text-align: center;
+    font-weight: bold;
+}
+
+#korea{
+   
+    display: flex;
+}
+
+#korea img{
+    width: 40%;
+    border-radius: 5%;
+}
+
+#korea p{
+    width: 60%;
+    padding-left: 30px;
+    padding-top: 45px;
+}
+
+#hruszcsov{
+   
+    display: flex;
+}
+
+#hruszcsov img{
+    width: 50%;
+    border-radius: 5%;
+}
+
+#hruszcsov p{
+    width: 60%;
+    padding-left: 30px;
+    padding-bottom: 50px;
+    
+    
+}
+
+#raketaKontenerek{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+#fenyegetesKontener{
+    width: 33.33%;
+    border-radius: 5%;
+    
+}
+
+#castroKontener{
+    width: 35.33%;
+    border-radius: 5%;
+    
+}
+
+#fenyegetesKontener img, #castroKontener img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+#fenyegetesKontener p, #castroKontener p{
+    text-align: center;
+    font-weight: bold;
+}
+
+#szovjet_szeteses{
+    width: 90%;
     border-radius: 8%;
     padding-top: 50px;
 }
