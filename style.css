@@ -857,6 +857,34 @@ h4 {
     padding-top: 50px;
 }
 
+/* Magyarország az első világháborúban betöltött szerepe és az azt követő időszak  */
+
+#hu_elsovh_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url();
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#hu_elsovh_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+.hu_elsovh_kepek{
+    width: 65%;
+    border-radius: 8%;
+    padding-top: 50px;
+}
 
 
 
