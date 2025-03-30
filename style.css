@@ -321,6 +321,146 @@ body{
         }
 }
 
+.about {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .aboutcolumn {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  .aboutbody {
+      background-image: url(kep2.jpg);
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: fixed; 
+      background-repeat: no-repeat;
+  }
+  
+  .aboutcard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+      background-color: burlywood;
+  }
+  
+  .about-section {
+    padding: 10px;
+    text-align: justify;
+    background-color: burlywood;
+    color: black;
+  }
+  .abouth2{
+      background-color: burlywood;
+      padding: 10px;
+  }
+  
+  .abouth1{
+      text-align: center;
+      background-color: burlywood
+  }
+  
+  .aboutcontainer {
+    padding: 0 16px;
+  }
+  
+  .aboutcontainer::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .abouttitle {
+    color: grey;
+  }
+  /*
+  ha akarunk contact gombot itt lehet, szerintem felesleges, mert odaírtam a szily email címünket
+  .aboutbutton {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .aboutbutton:hover {
+    background-color: #555;
+  }
+  */
+  
+  /*elérhetőség link*/
+  /*nem látogatott link*/
+  .abouta:link{
+      color:darkcyan;
+  }
+  /*látogatott link*/
+  .abouta:visited{
+      color: darkgreen;
+  }
+  /*link felé vitt egér*/
+  .abouta:hover{
+      color:purple;
+  }
+  /*kiválasztott link*/
+  .abouta:active{
+      color: olive;
+  }
+  
+  .aboutfooter {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: 100px;
+      width: 100%;
+      background-color:burlywood;
+      color: black;
+      text-align: center;
+  }
+  
+  /*social oldalak*/
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .aboutcolumn {
+      width: 100%;
+      display: block;
+    }
+  }
+
 /*AAAAHHHHHHHHH*/
 
 
