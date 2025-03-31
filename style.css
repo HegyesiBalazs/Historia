@@ -76,6 +76,11 @@ body{
     background-color: darkcyan;
     background-image: url(kep2.jpg);
     /* background-image: url(kep2.jpg); */
+    background-image: url(kep2.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
 }
 .idovonal{
     width: 1000px;
@@ -157,6 +162,7 @@ body{
     display: grid;
     gap: 5px;
     backdrop-filter: blur(10px);
+    background-color: burlywood;
 }
 .szoveg h2{
     font-size: 25px;
@@ -166,6 +172,7 @@ body{
     /*margin: 10px, 0;*/
     margin-top: 10px;
     text-align: justify;
+    color: black;
 }
 /*tovább olvasok gomb*/
 .gomb {
@@ -194,22 +201,22 @@ body{
 .valasztogomb1{
     background-color: white; 
     color: black; 
-    border: 2px solid #04AA6D;
+    border: 2px solid burlywood;
 }
 
 .valasztogomb1:hover {
-    background-color: #04AA6D;
+    background-color: burlywood;
     color: white;
 }
 
 .valasztogomb2{
     background-color: white; 
     color: black; 
-    border: 2px solid #008CBA;
+    border: 2px solid burlywood;
 }
 
 .valasztogomb2:hover {
-    background-color: #04AA6D;
+    background-color: burlywood;
     color: white;
 }
 
@@ -321,6 +328,8 @@ body{
         }
 }
 
+/*rólunk rész*/
+
 .about {
     box-sizing: border-box;
   }
@@ -362,7 +371,7 @@ body{
   
   .abouth1{
       text-align: center;
-      background-color: burlywood
+      background-color: burlywood;
   }
   
   .aboutcontainer {
