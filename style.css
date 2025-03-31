@@ -1014,7 +1014,7 @@ h4 {
     margin: 0;
     padding: 0;
     color: white;
-    background-image: url();
+    background-image: url(fenykepek/oszirozsas.jpeg);
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed; 
@@ -1031,6 +1031,34 @@ h4 {
 
 .hu_elsovh_kepek{
     width: 65%;
+    border-radius: 8%;
+    padding-top: 50px;
+}
+
+#kun{
+   
+    display: flex;
+}
+
+#kun img{
+    width: 40%;
+    border-radius: 5%;
+}
+
+#kun p{
+    width: 60%;
+    padding-left: 30px;
+    padding-top: 45px;
+}
+
+#vixjegyzek{
+    width: 90%;
+    border-radius: 8%;
+    padding-top: 50px;
+}
+
+#trianon1{
+    width: 90%;
     border-radius: 8%;
     padding-top: 50px;
 }
