@@ -322,14 +322,14 @@ body{
             left: 60px;
         }
         
-        /* Tedd az összes jobb oldali konténert úgy, mint a bal oldaliakat */
+        /*összes jobb oldali konténer úgy, mint a bal oldaliak*/
         .jobb {
             left: 45px;
         }
 }
 
 /*rólunk rész*/
-
+/*külön css-be raktam, mert összebugol a többi paraméterrel*/
 
 
 /*AAAAHHHHHHHHH*/
