@@ -300,30 +300,32 @@ body{
         }
         .eidovonal::after {
             left: 40px;
-        }    
+        }
         
         /* Full-width containerek */
         .container {
             max-width: 100%;
             padding: 30px 40px; /*távolság*/
-            /* padding-left: 70px;
-            padding-right: 25px; */
+            /* padding-left: 100px; */
         }
         
         /*minden nyíl balra mutat */
         .container::before {
-            left: 33px;
+            left: -12px; /*pötty a vonalon*/
             /*border: medium solid white;*/
             border-width: 10px 10px 10px 0;
         }
       
         /* Minden pötty ugyan ott van */
         .bal::after, .jobb::after {
-            left: 60px;
+            left: 100px;
         }
         
         /*összes jobb oldali konténer úgy, mint a bal oldaliak*/
         .jobb {
+            left: 45px;
+        }
+        .bal {
             left: 45px;
         }
 }
