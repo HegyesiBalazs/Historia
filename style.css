@@ -1063,5 +1063,32 @@ h4 {
     padding-top: 50px;
 }
 
+/* A második világháború */
 
 
+#masodikvh_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url();
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#masodikvh_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+.masodikvh_kepek{
+    width: 65%;
+    border-radius: 8%;
+    padding-top: 50px;
+}
