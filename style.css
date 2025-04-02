@@ -956,3 +956,109 @@ h4 {
     border-radius: 8%;
     padding-top: 50px;
 }
+
+/* Horthy korszak */
+
+#horthykorszak_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url(fenykepek/hor2.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#horthykorszak_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+.horthykorszak_kepek{
+    width: 65%;
+    border-radius: 8%;
+    
+}
+
+#bethlen{
+   
+    display: flex;
+}
+
+#bethlen img{
+    width: 40%;
+    border-radius: 5%;
+    
+}
+
+#bethlen p{
+    width: 60%;
+    padding-left: 30px;
+    
+    
+}
+
+#gombosi_daranyi_kontenerek{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+#gombosi{
+    width: 33.33%;
+    border-radius: 5%;
+    
+}
+
+#daranyi{
+    width: 33.33%;
+    border-radius: 5%;
+    
+    
+}
+
+#daranyi img{
+    height: 370px;
+}
+
+
+#gombosi img, #daranyi img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+#gombosi p, #daranyi p{
+    text-align: center;
+    font-weight: bold;
+}
+
+#imredy{
+   
+    display: flex;
+}
+
+#imredy img{
+    width: 40%;
+    border-radius: 5%;
+    padding-top: 45px;
+    
+    
+}
+
+#imredy p{
+    width: 60%;
+    padding-left: 30px;
+    
+    
+}
+
+#elso_becsi_dontes{
+    width: 100%;
+    border-radius: 8%;
+}
