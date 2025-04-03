@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="historia" href="logo.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>História</title>
+</head>
+<body>
+    <header>
+        <div class="main">
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Rólunk</a></li>
+                <li><a href="#" id="regisztracio">Bejelentkezés</a></li>
+            </ul>
+        </div>
+        
+        <div class="title">
+            <h1>História</h1>
+        </div>
+
+    </header>
+
+
+    <div id="div1" class="div hidden">
+        <div class="kontent">
+            <span id="bezarGomb" class="close">&times;</span>
+            <h2 id="h2b">Regisztráció</h2>
+            <div id="messageContainer"></div>
+            <form method="POST" action="regisztral.php">
+                <label for="firstname"></label>
+                <input type="text" id="firstname" class="input" placeholder="Vezetéknév" autocomplete="off" name="vezeteknev" required>
+    
+                <label for="lastname"></label>
+                <input type="text" id="lastname" class="input" placeholder="Keresztnév" autocomplete="off" name="keresztnev" required>
+    
+                <label for="email"></label>
+                <input type="email" id="email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+                
+                <label for="password"></label>
+                <input type="password" id="password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
+                <p id="message">A jelszó <span id="strenght"></span></p>
+
+                <label for="password2"></label>
+                <input type="password" id="password2" class="input" placeholder="Jelszó mégegyszer" autocomplete="off" required>
+                
+                <button class="gomb" type="submit">Regisztráció</button>
+                <p>Van már fiókod? <a href="#" id="bejelink">Jelentkezz be!</a></p>
+
+                
+            </form>
+        </div>
+    </div>
+
+    <div id="div2" class="div hidden">
+        <div class="kontent">
+            <span class="close" id="bezarGomb2">×</span>
+            <h2 id="h2b">Bejelentkezés</h2>
+            <form method="POST" action="bejelentkezik.php">
+                <label for="email"></label>
+                <input type="email" id="email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+        
+                <label for="password"></label>
+                <input type="password" id="password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
+        
+                <button class="gomb" type="submit">Bejelentkezés</button>
+        
+                <p>Nincs még fiókod? <a href="#" id="regilink">Regisztrálj!</a></p>
+                <p><a href="#" id="forgot-password-link">Elfelejtetted a jelszavad?</a></p>
+                <p><a href="#" id="change-email-link">Email cím módosítása</a></p> <!-- Új link -->
+    
+                <div class="emlekezzram">
+                    <input type="checkbox" id="emlekezzRam" name="emlekezzRam">
+                    <label for="emlekezzRam">Emlékezz rám</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Elfelejtett jelszó Modal -->
+    <div id="forgot-password-modal" class="div hidden">
+        <div class="kontent">
+            <span id="forgot-close" class="close">×</span>
+            <h2>Elfelejtett jelszó</h2>
+            <form id="forgot-password-form">
+                <label for="forgot-email"></label>
+                <input type="email" id="forgot-email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+                <button class="gomb" type="submit">Kód küldése</button>
+            </form>
+            <form id="reset-password-form" style="display: none;">
+                <label for="reset-code"></label>
+                <input type="text" id="reset-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
+                <label for="new-password"></label>
+                <input type="password" id="new-password" class="input" placeholder="Új jelszó" autocomplete="off" name="new_password" required>
+                <button class="gomb" type="submit">Jelszó módosítása</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Email módosítás Modal -->
+    <div id="change-email-modal" class="div hidden">
+        <div class="kontent">
+            <span id="change-email-close" class="close">×</span>
+            <h2>Email cím módosítása</h2>
+            <form id="change-email-form">
+                <label for="new-email"></label>
+                <input type="email" id="new-email" class="input" placeholder="Új email cím" autocomplete="off" name="new_email" required>
+                <button class="gomb" type="submit">Kód küldése</button>
+            </form>
+            <form id="verify-email-form" style="display: none;">
+                <label for="verify-code"></label>
+                <input type="text" id="verify-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
+                <label for="verify-new-email"></label>
+                <input type="email" id="verify-new-email" class="input" placeholder="Új email cím" autocomplete="off" name="new_email" required>
+                <button class="gomb" type="submit">Email módosítása</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Kijelentkezés gomb (Ez jelenik meg, ha be vagy jelentkezve) -->
+<button id="logout">Kijelentkezés</button>
+
+<!-- Kijelentkezési Modal -->
+<div id="logout-modal" class="modal hidden">
+    <div class="modal-content">
+        <span id="close-logout-modal" class="close">&times;</span>
+        <h2>Biztosan ki szeretnél jelentkezni?</h2>
+        <button id="logout-confirm">Igen</button>
+        <button id="logout-cancel">Nem</button>
+    </div>
+</div>
+
+    <!-- menj vissza gomb -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Vissza</button>
+
+    <div class="idovonal_valaszto">
+        <button id="valasztogomb" class="gomb valasztogomb1" onclick="magyartori()">Magyar történelem</button>
+        <button id="bezar" class="gomb valasztogomb1">Idővonal bezárása</button>    
+
+        <button id="valasztogombe" class="gomb valasztogomb2"onclick="egytemestori()">Egyetemes történelem</button>    
+        <button id="bezar2" class="gomb valasztogomb2">Idővonal bezárása</button>
+    </div>
+    <!-- magyar idővonal -->
+    <section id="idovonal" class="idovonal">
+        <div class="container bal">
+            <div class="szoveg">
+                <h2>1900-1910</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:1s">
+            <div class="szoveg ">
+                <h2>1910-1920</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:2s">
+            <div class="szoveg">
+                <h2>1920-1930</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:3s">
+            <div class="szoveg ">
+                <h2>1930-1940</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:4s">
+            <div class="szoveg">
+                <h2>1940-1950</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:5s">
+            <div class="szoveg ">
+                <h2>1950-1960</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:6s">
+            <div class="szoveg">
+                <h2>1960-1970</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:7s">
+            <div class="szoveg ">
+                <h2>1970-1980</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:8s">
+            <div class="szoveg">
+                <h2>1980-1990</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:9s">
+            <div class="szoveg ">
+                <h2>1990-2000</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- egytemes idővonal -->
+    
+    <section id="eidovonal" class="eidovonal">
+        <div class="container bal">
+            <div class="szoveg">
+                <h2>1900-1910</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:1s">
+            <div class="szoveg ">
+                <h2>1910-1920</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:2s">
+            <div class="szoveg">
+                <h2>1920-1930</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:3s">
+            <div class="szoveg ">
+                <h2>1930-1940</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:4s">
+            <div class="szoveg">
+                <h2>1940-1950</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:5s">
+            <div class="szoveg ">
+                <h2>1950-1960</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:6s">
+            <div class="szoveg">
+                <h2>1960-1970</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:7s">
+            <div class="szoveg ">
+                <h2>1970-1980</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container bal" style="--dly:8s">
+            <div class="szoveg">
+                <h2>1980-1990</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+
+        <div class="container jobb" style="--dly:9s">
+            <div class="szoveg ">
+                <h2>1990-2000</h2>
+                <p>
+                    css timeline,create vertical timeline using html and css,
+                    html css timeline,pure css timeline,vertical timeline,
+                    timeline using html and css,timeline,css timeline design,
+                    timeline desing,html and css timeline,vertical css timeline,
+                    timeline html css,how to create a timeline,responsive 
+                    timeline design using only html and css,simple timeline design,
+                    vertical timeline css,how to make a timeline,animated timeline design,
+                    vertical html timeline
+                </p>
+                <button class="gomb">Tovább olvasok...</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        itten lehetne valami
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
