@@ -1062,3 +1062,32 @@ h4 {
     width: 100%;
     border-radius: 8%;
 }
+
+/* Magyarország a második világháborúban */
+
+#hu_masodikvh_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url(fenykepek/);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#hu_masodikvh_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+.hu_masodikvh_kepek{
+    width: 65%;
+    border-radius: 8%;
+    
+}
