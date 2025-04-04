@@ -48,7 +48,6 @@ ul li.active a{
 .main{
     max-width: 1200px;
     margin: auto;
-
 }
 
 
@@ -366,8 +365,9 @@ body{
 
 
     /*Háttér-Stílusok*/
-    background-color: transparent;
-    backdrop-filter: blur(5px);
+    /*background-color: transparent*/
+    background-color: burlywood;
+    /* backdrop-filter: blur(5px); */
     outline: none;
 }
 
