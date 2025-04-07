@@ -1071,7 +1071,7 @@ h4 {
     margin: 0;
     padding: 0;
     color: white;
-    background-image: url(fenykepek/);
+    background-image: url(fenykepek/hid4.jpg);
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed; 
@@ -1089,5 +1089,65 @@ h4 {
 .hu_masodikvh_kepek{
     width: 65%;
     border-radius: 8%;
+    
+}
+
+#Masodikbecsidontes{
+    width: 85%;
+    border-radius: 8%;
+}
+
+#kassa{
+   
+    display: flex;
+}
+
+#kassa img{
+    width: 40%;
+    border-radius: 5%;
+    padding-top: 45px;
+    
+    
+}
+
+#kassa p{
+    width: 60%;
+    padding-left: 30px;
+    
+    
+}
+
+#barbarossa41{
+    width: 92%;
+    border-radius: 8%;
+}
+
+#margaretaterv{
+    width: 90%;
+    border-radius: 5%;
+}
+
+#magyarfront{
+    width: 90%;
+    border-radius: 8%;
+}
+
+#nemzetgyules{
+   
+    display: flex;
+}
+
+#nemzetgyules img{
+    width: 40%;
+    border-radius: 5%;
+    padding-top: 45px;
+    
+    
+}
+
+#nemzetgyules p{
+    width: 60%;
+    padding-left: 30px;
+    
     
 }
