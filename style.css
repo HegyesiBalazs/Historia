@@ -13,7 +13,7 @@ header{
 
 }
 
-ul{
+/* ul{
     float: right;
     list-style-type: none;
     margin-top: 30px;
@@ -47,9 +47,60 @@ ul li.active a{
 
 .main{
     /*max-width: 1200px;*/
-    margin: auto;
-}
+    /*margin: auto;
+} */
 
+/*navbar #2*/
+.topnav {
+    overflow: hidden;
+    background-color: burlywood;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: rgb(160, 123, 75);
+    color: white;
+  }
+  
+  .topnav a.active {
+    background-color:rgb(160, 123, 75);
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
 
 .title{
     position: absolute;
@@ -73,8 +124,7 @@ ul li.active a{
 }
 body{
     background-color: darkcyan;
-    background-image: url(kep2.jpg);
-    /* background-image: url(kep2.jpg); */
+    /* background-image: url(kep.jpg); */
     background-image: url(kep2.jpg);
     background-size: cover; 
     background-position: center; 
@@ -173,6 +223,37 @@ body{
     text-align: justify;
     color: black;
 }
+
+/* szlogen */
+.slogen{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: burlywood;
+}
+
+.slogen h3{
+    padding: 10px;
+}
+
+.slogenp{
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
 /*tovább olvasok gomb*/
 .gomb {
     border: none;
@@ -237,7 +318,7 @@ body{
     align-items: center;
     position: absolute;
     margin: 0;
-    top: 50%;
+    top: 60%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -292,6 +373,7 @@ body{
         body{
             max-width: 900px;
         }
+
         
         /* balra teszi az idővonalat */
         .idovonal::after {
@@ -332,6 +414,16 @@ body{
 /*rólunk rész*/
 /*külön css-be raktam, mert összebugol a többi paraméterrel*/
 
+/*footer*/
+/* .footer {
+    /* position:fixed; */
+    /*height: 100px;
+    width: 100%;
+    background-color:burlywood;
+    color: black;
+    text-align: center;
+    display: flex;
+} */
 
 /*AAAAHHHHHHHHH*/
 

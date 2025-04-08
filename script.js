@@ -226,3 +226,13 @@ function topFunction() {
   document.body.scrollTop = 0; // Safarihoz
   document.documentElement.scrollTop = 0; // Chrome-hoz, Firefox-hoz, Opera-hoz stb...
 }
+
+//navbar
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
