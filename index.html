@@ -5,17 +5,28 @@
     <link rel="shortcut icon" type="historia" href="logo.webp">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- navbarhoz -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>História</title>
 </head>
 <body>
     <header>
-        <div class="main">
+        <!-- <div class="main">
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
                 <li><a href="about.html">Rólunk</a></li>
                 <li><a href="#" id="regisztracio">Bejelentkezés</a></li>
             </ul>
-        </div>
+        </div> -->
+
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">Rólunk</a>
+            <a href="#" id="regisztracio">Bejelentkezés</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
         
         <div class="title">
             <h1>História</h1>
@@ -82,13 +93,23 @@
 <!-- <button id="logout">Kijelentkezés</button> -->
 
 
+<!-- 
+<div class="slogen">
+    <h2>Értsd meg a múltat, hogy alakíthasd a jövőt.</h2>
+    <p class="slogenp">
+        Weboldalunk célja, hogy átfogó, hiteles és közérthető módon mutassa be a 20. század történelmét – az első világháborútól a hidegháború végéig,
+         a forradalmaktól a technológiai áttörésekig.
+        Cikkek, idővonalak, ritkán látott fotók, korabeli dokumentumok és személyes történetek segítségével segítünk megérteni azt az évszázadot, 
+        amely alapjaiban formálta a mai világunkat.
+    </p>
 
+<h3>Melyik történelemre vagy kíváncsi?</h3>
+<p class="slogenp">
+    A magyar történelemhez nyomd meg a Magyar történelem gombot!
+    Az egyetemes történelemhez pedig válaszd az Egyetemes történelem gombot!
+</p>
 
-
-
-
-
-
+</div> -->
 
 
     <!-- menj vissza gomb -->
@@ -448,8 +469,12 @@
         </div>
     </section>
 
-    <!-- <footer>
-        itten lehetne valami
+    <!-- <footer class="footer">
+        <p>Ha tetszik amit látsz, akkor ne felejts el beköveni minket social oldalainkon!<br>
+            <a href="https://www.facebook.com/balazs.hegyesi.12?locale=hu_HU" class="fa fa-facebook" target="_blank"></a>
+            <a href="https://x.com/bazsi0309" target="_blank" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/bazsi0309/" class="fa fa-instagram" target="_blank"></a>
+        </p>
     </footer> -->
     <script src="script.js" defer></script>
 </body>
