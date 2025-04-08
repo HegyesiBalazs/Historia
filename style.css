@@ -1151,3 +1151,32 @@ h4 {
     
     
 }
+
+/* Rákosi-korszak és az 56-os forradalom */
+
+#rakosi_body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url(fenykepek/);
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+}
+
+#rakosi_header {
+    background: #333;
+    color: #fff;
+    padding: 20px ; 
+    text-align: center;
+}
+
+.rakosi_kepek{
+    width: 65%;
+    border-radius: 8%;
+    
+}
