@@ -2,7 +2,12 @@
     margin: 0px;
     padding: 0px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
 }
+
+html, body {
+    overflow-x: hidden;
+} 
 
 header{
     /*background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(kep.jpg);*/
@@ -130,7 +135,52 @@ body{
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    min-height: 100vh; /* A body legalább a teljes képernyőmagasságot kitölti */
+    display: flex;
+    flex-direction: column;
 }
+
+.slogen {
+    text-align: center;
+    padding: 20px;
+    background-color: burlywood;
+    color: black;
+}
+
+.slogen h2 {
+    font-size: 2rem; /* Alapértelmezett betűméret */
+    margin-bottom: 10px;
+}
+
+.slogen p {
+    font-size: 1.2rem; /* Alapértelmezett betűméret */
+    margin: 10px 0;
+}
+
+@media screen and (max-width: 900px) {
+    .slogen h2 {
+        font-size: 1.8rem; /* Kisebb betűméret tableten */
+    }
+
+    .slogen p {
+        font-size: 1rem; /* Kisebb betűméret tableten */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .slogen {
+        padding: 10px; /* Csökkentett padding mobilon */
+    }
+
+    .slogen h2 {
+        font-size: 1.5rem; /* Kisebb betűméret mobilon */
+    }
+
+    .slogen p {
+        font-size: 0.9rem; /* Kisebb betűméret mobilon */
+    }
+}
+
 .idovonal{
     width: 1000px;
     margin: 500px auto;
@@ -190,6 +240,10 @@ body{
     right: -7px;
     border-radius: 50%;
     z-index: 10;
+}
+
+::after, ::before {
+    box-sizing: border-box;
 }
 
 .container:nth-child(even)::before{
@@ -365,14 +419,14 @@ body{
   }
   
   #myBtn:hover {
-    background-color: #555; 
+    background-color: burlywood; 
   }
 
   /* media */
 @media screen and (max-width: 900px) {
-        body{
+        /* body{
             max-width: 900px;
-        }
+        } */
 
         
         /* balra teszi az idővonalat */
@@ -388,6 +442,8 @@ body{
             max-width: 100%;
             padding: 30px 40px; /*távolság*/
             /* padding-left: 100px; */
+            /*box-sizing: border-box;*/
+            /*margin: 0 auto;*/
         }
         
         /*minden nyíl balra mutat */
@@ -409,21 +465,84 @@ body{
         .bal {
             left: 45px;
         }
+
+        /* .szoveg {
+            font-size: 14px; /* Kisebb betűméret a jobb olvashatóságért */
+            /*word-wrap: break-word;
+            overflow-wrap: break-word; /* Tördelés hosszú szavak esetén */
+        /*} */
+        .szoveg{
+            width: 600px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+}
+
+/*.......görgetéses*/
+/*optimalizálás teló és tablet*/
+
+@media screen and (max-width: 600px) {
+    .title {
+        position: static; /* Távolítsd el az abszolút pozícionálást */
+        text-align: center; /* Középre igazítja a címet */
+        margin: 0 auto; /* Biztosítja, hogy középen maradjon */
+    }
+
+    .title h1 {
+        font-size: 70px; /* Igazítsd a betűméretet mobilnézethez */
+        text-align: center; /* A h1 elem középre igazítása */
+    }
+     
+    .szoveg{
+        width: 200px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
 }
 
 /*rólunk rész*/
 /*külön css-be raktam, mert összebugol a többi paraméterrel*/
 
 /*footer*/
-/* .footer {
-    /* position:fixed; */
-    /*height: 100px;
-    width: 100%;
-    background-color:burlywood;
-    color: black;
-    text-align: center;
+.footer {
     display: flex;
-} */
+    justify-content: center; /* Vízszintes középre igazítás */
+    align-items: center; /* Függőleges középre igazítás */
+    height: 100px;
+    width: 100%;
+    background-color: burlywood;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+}
+
+/*social oldalak*/
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
 
 /*AAAAHHHHHHHHH*/
 
