@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Világtörténelem: 1940-1950</title>
+    <link rel="stylesheet" href="IIvh_styles.css">
+    <!-- Leaflet CSS betöltése -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="overlay" id="overlay" onclick="toggleJegyzet()"></div>
+    <div class="jegyzet" id="jegyzet">
+        <button class="jegyzet-tab" onclick="toggleJegyzet()">Jegyzetek</button>
+        <h2>Jegyzet</h2>
+        <div id="content">
+            <textarea id="jegyzetSzoveg" rows="5" placeholder="Írj ide..."></textarea>
+            <button onclick="saveNotes()">Mentés fájlba</button>
+            <button onclick="sendNotes()">Elküldés</button>
+            <button onclick="toggleJegyzet()">Bezárás</button>
+            <button onclick="toggleTodo()">To Do Lista</button>
+            <div id="todoContainer" class="todo-container">
+                <div class="todo-header">
+                    <h2>Feladatok</h2>
+                    <div class="todo-input">
+                        <input type="text" id="myInput" placeholder="Feladat...">
+                        <span onclick="newElement()" class="addBtn">Hozzáad</span>
+                    </div>
+                    <ul id="myUL">
+                        <li>Történelmi dátumok ellenőrzése</li>
+                        <li class="checked">Források összegyűjtése</li>
+                        <li>Szöveg szerkesztése</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p id="loginMessage" class="message" style="display: none;">Jelentkezz be, hogy tud használni a jegyzetet</p>
+            
+    </div>
+    <div class="container">
+        <header>
+            <h1>Világtörténelem: II.Világháború</h1>
+            <p>A világ legvéresebb háborúja</p>
+        </header>
+
+        <section class="timeline">
+            <div class="event">
+                <h3>1931-1939: A japán terjeszkedés Ázsiában</h3>
+                <strong>Dátum: 1931. szeptember 18. – 1939. szeptember 1.</strong>
+                <p>
+                    Japán az 1930-as években agresszív terjeszkedésbe kezdett Ázsiában, amelyet gazdasági és stratégiai érdekek vezéreltek. 
+                    Az ország iparosodása gyors ütemben zajlott, de a szigetország nyersanyaghiánnyal küzdött, különösen szén, vas és olaj tekintetében. 
+                    Emellett a japán vezetés a nacionalista ideológia jegyében egy regionális nagyhatalmi pozíciót akart kiépíteni, amit a „Nagy Kelet-Ázsiai Közös Jóléti Szféra” koncepciója testesített meg. 
+                    Ez a terv Ázsia japán uralmát hirdette, állítólag a nyugati gyarmatosítás alternatívájaként.
+                    1931. szeptember 18-án a japán Kwantung-hadsereg megrendezte a mukdeni incidenst. 
+                    Ez egy előre kitervelt provokáció volt: a japánok felrobbantottak egy vasútvonalat Mandzsúria területén, amit aztán a kínai erőkre fogtak. 
+                    Az incidenst ürügyként használva a Kwantung-hadsereg azonnal megkezdte Mandzsúria megszállását, amely Kína északkeleti, nyersanyagokban gazdag régiója volt.
+                     A gyors hadművelet során a japán erők ellenállás nélkül elfoglalták a kulcsfontosságú városokat, például Mukdent (ma Senjang).
+                    1932-ben Japán létrehozta Mandzsukuo bábállamát a megszállt területen. 
+                    Az állam élére Pu Jit, az utolsó kínai császárt helyezték, aki 1912-ben, kiskorúként kényszerült lemondani a trónról. 
+                    Mandzsukuo azonban csupán egy japán bábállam volt, amelyet a Kwantung-hadsereg irányított. 
+                    A Népszövetség vizsgálatot indított az ügyben, és a Lytton-jelentés elítélte Japán agresszióját, de kézzelfogható szankciókat nem hozott. 
+                    Japán válaszul 1933-ban kilépett a Népszövetségből, ezzel egyértelművé téve, hogy nem tűr nemzetközi ellenőrzést vagy korlátozást.
+                    1937. július 7-én a Marco Polo-híd incidenssel kitört a második kínai-japán háború. 
+                    Ez az esemény Peking közelében zajlott le, amikor japán és kínai csapatok összecsaptak egy kisebb incidens során, amit a japánok ismét ürügyként használtak fel egy nagyszabású offenzíva indítására. 
+                    A konfliktus gyorsan eszkalálódott, és Japán teljes körű háborút indított Kína ellen. 
+                    A japán hadsereg modern fegyverekkel és jól képzett egységekkel rendelkezett, míg a kínai erők megosztottak és rosszul felszereltek voltak.
+                    A japán offenzíva gyors sikereket hozott: 1937. július 29-én elfoglalták Pekinget, majd nem sokkal később Tiencsint is, ezzel ellenőrzésük alá vonva Észak-Kína kulcsfontosságú városait. 
+                    Ezt követte Sanghaj ostroma, amely heves harcok után november 12-én esett el. Sanghaj elfoglalása stratégiai jelentőségű volt, hiszen Kína egyik legfejlettebb ipari és kereskedelmi központja volt, és a japánok innen tovább nyomulhattak a kínai belsőbb területek felé.
+                    1937 decemberében Japán elérte egyik legellentmondásosabb hadi sikerét: Nanking, az akkori kínai főváros elfoglalását. A várost december 13-án vették be, amit a nankingi mészárlás követett. 
+                    Hat héten keresztül a japán katonák ellenőrizetlenül gyilkoltak civileket és hadifoglyokat, gyakran brutális kegyetlenséggel – lefejezések, élve eltemetések és nemi erőszakok tömkelege jellemezte ezt az időszakot. 
+                    A történészek becslése szerint 200-300 ezer ember halt meg, bár a pontos szám vitatott. Ez az esemény nemzetközi felháborodást váltott ki, és maradandó sebként égett a kínai-japán kapcsolatokba.               
+                    Japán terjeszkedésének célja nemcsak a nyersanyagok – például szén, vas és mezőgazdasági erőforrások – megszerzése volt, hanem egy olyan ázsiai birodalom kiépítése is, amely gazdasági és katonai szempontból függetlenítheti Japánt a nyugati hatalmaktól. 
+                    A „Nagy Kelet-Ázsiai Közös Jóléti Szféra” ideológiája azonban inkább propagandaeszközként szolgált, hiszen a japán uralom alatt álló területeken kegyetlen elnyomás és kizsákmányolás zajlott. 
+                    Az 1939-re kialakult helyzet a második világháború ázsiai előzményeit vetítette előre, amely végül 1941-ben, Pearl Harbor megtámadásával teljesedett ki.
+                </p>
+                <img src="fenykepek/Hirohito.jpg" alt="csaszar" id="csaszar">
+                <img src="fenykepek/Japanterj.jpg" alt="Japanterj" id="Japanterj">
+            </div>
+
+            <div class="event">
+                <h3>1936-1939: A spanyol polgárháború</h3>
+                <strong>Dátum: 1936. július 17. – 1939. április 1.</strong>
+                <p>A spanyol polgárháború (1936–1939) Spanyolország modern történetének egyik legmeghatározóbb és legtragikusabb eseménye volt. 
+                    Az 1930-as évek elejére az ország mély politikai, társadalmi és gazdasági válságba süllyedt. 
+                    A Második Spanyol Köztársaság 1931-es megalakulása után a baloldali reformok (földreform, egyház és állam szétválasztása, munkásjogok) éles ellenállást váltottak ki a konzervatív erőkből, mint a nagybirtokosok, a katolikus egyház és a hadsereg. 
+                    A politikai instabilitást fokozta a jobboldali és baloldali csoportok közötti erőszak, amely 1936-ra polgárháborúvá eszkalálódott.
+                    A háború 1936. július 17-én kezdődött, amikor nacionalista tábornokok, élükön Francisco Francóval, katonai puccsot kíséreltek meg a baloldali Népi Front kormánya ellen. 
+                    A puccs részben kudarcot vallott, mert a nagyvárosokban (Madrid, Barcelona) a munkások és a baloldali milíciák ellenálltak. 
+                    Ez két táborra osztotta az országot: a republikánusokra (baloldali pártok, szakszervezetek) és a nacionalistákra (hadsereg, monarchisták, falangisták).
+                    A háború számos kulcsfontosságú ütközetet hozott, mint a Madridi ostrom (1936–1939), ahol a republikánusok hősiesen védekeztek („¡No pasarán!”), a Jarama-i csata (1937. február) és a Guadalajarai csata (1937. március), amelyekben a republikánusok megállították a nacionalista előrenyomulást, valamint az Ebrói csata (1938. július–november), a háború leghosszabb és legvéresebb ütközete, amely kimerítette a republikánusokat. 
+                    A Katalóniai offenzíva (1938. december – 1939. február) során Franco elfoglalta Barcelonát, ami a republikánus ellenállás összeomlásához vezetett.
+                    A konfliktus gyorsan nemzetközi dimenziót öltött: Németország a Condor Légiót küldte (1937-ben lebombázták Guernicát), Olaszország 50–75 ezer katonát, a Szovjetunió fegyvereket és a Nemzetközi Brigádokat támogatta. 
+                    Nagy-Britannia és Franciaország „nem-beavatkozási politikát” folytattak, ami a republikánusok hátrányára vált.
+                    A háború mély társadalmi sebeket hagyott: kb. 500 ezer ember halt meg, és a konfliktus inspirálta a művészetet, mint Pablo Picasso *Guernica* című festményét. 
+                    1939. április 1-jén Franco győzelmével ért véget a háború, és diktatúrája 1975-ig tartott, tízezreket kivégezve vagy bebörtönözve.
+                </p>
+                <img src="fenykepek/Franco.png" alt="Franco" id="Franco">
+            </div>
+
+            <div class="event">
+                <h3>1939: A második világháború kezdete</h3>
+                <strong>Dátum: 1939. szeptember 1.</strong>
+                <p>A háború előzménye az 1939. augusztus 23-án aláírt Molotov–Ribbentrop-paktum volt, amelynek titkos záradéka Lengyelország és Kelet-Európa felosztásáról szólt Németország és a Szovjetunió között. 
+                    Augusztus 25-én Nagy-Britannia és Lengyelország kölcsönös védelmi egyezményt kötött, ám ez nem rettentette el Hitlert. 1939. szeptember 1-jén hajnali 4:45-kor a német Schleswig-Holstein csatahajó tüzet nyitott a danzigi Westerplatte erődre, megkezdve Lengyelország invázióját. A Blitzkrieg-taktika – a Luftwaffe légitámadásai, a páncélosok gyors előrenyomulása és a gyalogság koordinált támadása – villámgyors sikert hozott: Varsót szeptember 27-re elfoglalták.
+                    Szeptember 3-án Nagy-Britannia és Franciaország ultimátumot küldött Németországnak, amelynek lejárta után (11:00-kor) hadat üzentek, ezzel hivatalosan kitört a második világháború. 
+                    Szeptember 17-én a Szovjetunió is bevonult Kelet-Lengyelországba a paktum értelmében, és október 6-ra Lengyelországot teljesen felosztották. 
+                    A nyugati fronton azonban a "furcsa háború" (Phoney War) időszaka következett, ahol a szövetségesek nem indítottak jelentős offenzívát Németország ellen, így Hitler további terveire koncentrálhatott.
+                </p>
+                <img src="fenykepek/lengyel1939map.jpg" alt="lengyel" id="lengyel">
+                <img src="fenykepek/karikatura.jpg" alt="karikatura" id="karikatura">
+            </div>
+            <div class="event"> 
+                <h3>1940: Franciaország lerohanása (A Fall Gelb és Fall Rot hadműveletek)</h3> 
+                <strong>Dátum: 1940. május 10. – június 25.</strong> 
+                <p>Franciaország lerohanása, más néven a Nyugat hadjárat (Westfeldzug), a második világháború egyik kulcsfontosságú hadművelete volt, amelynek során a náci Németország villámgyorsan legyőzte Franciaországot és a vele szövetséges alacsonyabb létszámú brit, belga és holland erőket. 
+                    A hadjárat két fő szakaszból állt: a „Fall Gelb” (Sárga Terv), amely a Benelux-államok és Észak-Franciaország elfoglalására irányult, valamint a „Fall Rot” (Vörös Terv), amely a francia védelmi vonalak végső áttörését és az ország kapitulációját eredményezte. 
+                    Ez a győzelem lehetővé tette Németország számára, hogy Nyugat-Európa nagy részét ellenőrzése alá vonja.
+                    A hadjárat 1940. május 10-én kezdődött, amikor a német Wehrmacht villámháborús (Blitzkrieg) taktikát alkalmazva megtámadta Hollandiát, Belgiumot és Luxembourgot. 
+                    A német stratégia, amelyet Erich von Manstein tábornok dolgozott ki, a híres „Sarlóvágás” (Sichelschnitt) tervre épült. 
+                    E terv lényege az volt, hogy a német páncélos hadosztályok az Ardennek erdős-hegyes vidékén keresztül – amelyet a szövetségesek járhatatlannak és így védettnek tartottak – áttörjenek, majd a La Manche-csatorna felé nyomuljanak, elvágva a szövetséges erőket Észak-Franciaországban.
+                    A „Fall Gelb” során a német A hadseregcsoport (Heeresgruppe A), Heinz Guderian és Erwin Rommel tábornokok vezetésével, gyorsan áttört az Ardenneken, és május 12-re elérte a Meuse folyót. 
+                    A folyón való átkelés után a páncélosok villámgyorsan haladtak nyugat felé, miközben a Luftwaffe légi támogatása megsemmisítette a szövetséges légierőket és bombázta a kulcsfontosságú infrastruktúrát. 
+                    Május 20-ra a német erők elérték a La Manche-csatornát Abbeville-nél, ezzel bekerítve a brit expedíciós erőket (BEF) és a francia 1. hadsereget Dunkerque térségében.
+                    A dunkerque-i csata (május 26. – június 4.) során a szövetségeseknek sikerült evakuálniuk mintegy 338 000 katonát a „Dynamo” hadművelet keretében, de hatalmas mennyiségű hadianyagot hagytak hátra. 
+                    Bár ez taktikai sikernek számított, stratégiailag katasztrofális veszteséget jelentett, hiszen Franciaország védelme jelentősen meggyengült. 
+                    Hitler döntése, hogy megálljt parancsolt a német páncélosoknak Dunkerque előtt – részben Göring azon ígéretére alapozva, hogy a Luftwaffe egyedül képes megsemmisíteni a szövetségeseket –, később viták tárgyává vált, de nem változtatott a hadjárat kimenetelén.
+                    A „Fall Rot” június 5-én vette kezdetét, miután a németek átszervezték erőiket.
+                    A francia hadsereg a Maginot-vonal mögött erősítette meg állásait, de ez a statikus védelmi rendszer hatástalannak bizonyult a mozgékony német taktikával szemben.
+                    A Wehrmacht délen áttörte a maradék francia vonalakat, és június 14-én bevonult Párizsba, amelyet előzőleg nyílt várossá nyilvánítottak, hogy elkerüljék a pusztulását. 
+                    A francia kormány Bordeaux-ba menekült, miközben az országban káosz uralkodott.
+                    A vereség okai között szerepelt a szövetségesek elavult stratégiája, a kommunikációs és parancsnoki hibák, valamint a német Blitzkrieg hatékonysága, amely a gyors páncélos előrenyomulást légi támogatással kombinálta. 
+                    Június 22-én Franciaország aláírta a fegyverszünetet a compiègne-i erdőben – ugyanott, ahol 1918-ban Németország kapitulált az első világháború végén –, és az ország északi része német megszállás alá került, míg délen létrejött a kollaboráns Vichyi Franciaország Philippe Pétain vezetésével.
+                    A hadjárat során a német veszteségek viszonylag alacsonyak voltak (kb. 27 000 halott), míg a szövetségesek több százezer katonát veszítettek fogságba esés vagy haláleset révén. 
+                    Franciaország bukása sokkolta a világot, és megmutatta a Blitzkrieg pusztító hatékonyságát. Ez a győzelem Németországot Nyugat-Európa domináns hatalmává tette, és közvetlenül előkészítette a brit légi csata színpadát, amely a következő nagy próbatétel lett Hitler terveiben.
+                </p> 
+                <img src="fenykepek/hitler-parizsban.jpg" alt="Hitler_parizsban" id="Hitler_parizsban">
+                <img src="fenykepek/francia.jpg" alt="Francia" id="Francia">
+            </div>
+
+            <div class="event"> 
+                <h3>1940: A brit légi csata (Battle of Britain)</h3> 
+                <strong>Dátum: 1940. július 10. – október 31.</strong> 
+                <p>A brit légi csata a második világháború egyik meghatározó hadművelete volt, amelyet a német Luftwaffe indított az Egyesült Királyság ellen. 
+                    A hadjárat célja az volt, hogy a német légierő megtörje a brit ellenállást, megsemmisítse a Brit Királyi Légierőt (RAF), és ezzel előkészítse a terepet a tervezett német partraszálláshoz, az úgynevezett Tengeri Oroszlán hadművelethez (Unternehmen Seelöwe). 
+                    Ez lett volna az első lépés Nagy-Britannia megszállásához, miután Franciaország már korábban kapitulált 1940 júniusában. 
+                    A csata kezdetén, 1940 júliusában a Luftwaffe támadásai elsősorban a brit kikötőkre, hajózási útvonalakra és a La Manche-csatorna menti célpontokra irányultak, hogy gyengítsék a brit védelmi infrastruktúrát. 
+                    Augusztusban a német stratégia megváltozott: Adolf Hitler és Hermann Göring, a Luftwaffe parancsnoka parancsot adott az intenzív légitámadások megindítására a RAF légibázisai, repülőterei és radarállomásai ellen. 
+                    Ez az időszak, amelyet „Adlertag” (Sas Napja) néven ismernek (augusztus 13.), a csata egyik legkritikusabb szakaszát jelentette.
+                    A RAF, Sir Hugh Dowding parancsnoksága alatt, rendkívüli ellenállást tanúsított. A britek előnyben voltak a korszerű radarhálózatuk (Chain Home) és a hatékony parancsnoki-irányítási rendszerük miatt, amely lehetővé tette a német bombázók és vadászgépek gyors észlelését és az ellenük való célzott védekezést. 
+                    A RAF két ikonikus repülőgépe, a Supermarine Spitfire és a Hawker Hurricane kulcsszerepet játszott a légi harcokban, bár a pilóták száma folyamatosan fogyatkozott a hetekig tartó intenzív összecsapások miatt.
+                    Szeptemberben a német stratégia megváltozott: a Luftwaffe megkezdte London és más nagy brit városok bombázását, részben megtorlásul a RAF Berlin elleni támadásaiért. 
+                    Ez a „Blitz” néven ismert időszak a polgári lakosságot célozta, de stratégiai szempontból hibának bizonyult, mert a RAF így időt nyert a regenerálódásra. 
+                    A csata csúcspontja 1940. szeptember 15-én érkezett el, amikor a Luftwaffe hatalmas légitámadást indított London ellen, de a RAF döntő győzelmet aratott, jelentősen meggyengítve a német légierőt.
+                    Október végére Hitler belátta, hogy a Luftwaffe nem képes megtörni a brit légvédelmet, ezért elhalasztotta a Tengeri Oroszlán hadműveletet – amely végül soha nem valósult meg. A brit légi csata győzelme fordulópontot jelentett a háborúban: ez volt az első jelentős kudarc a náci Németország számára, és bebizonyította, hogy a Harmadik Birodalom nem legyőzhetetlen. 
+                    Emellett fenntartotta Nagy-Britannia ellenállását, amely később kulcsfontosságú szövetséges bázisként szolgált az Egyesült Államok és más szövetséges erők számára a háború további szakaszaiban.
+                    A csata során a RAF mintegy 544 pilótát veszített, míg a Luftwaffe veszteségei meghaladták a 2600 főt. Winston Churchill híres mondása – „Soha nem köszönhetett még ennyi ember ilyen sokat ennyi keveseknek” – a RAF pilótáinak bátorságát és áldozatvállalását méltatta, akik a „The Few” (A Kevések) néven vonultak be a történelembe.
+                </p>
+                <img src="fenykepek/Brit.jpg" alt="Brit" id="Brit"> 
+            </div>
+
+            <div class="event"> 
+                <h3>1940–1943: Az afrikai hadszíntér (Észak-Afrikai hadjárat)</h3> 
+                <strong>Dátum: 1940. június 10. – 1943. május 13.</strong> 
+                <p>Az észak-afrikai hadjárat a második világháború egyik jelentős hadszíntére volt, amely Líbia, Egyiptom és Tunézia területén zajlott az olasz és német tengelyhatalmak, valamint a brit és szövetséges erők között. 
+                    A konfliktus célja az észak-afrikai térség, különösen a Szuezi-csatorna és a közel-keleti olajmezők feletti ellenőrzés megszerzése volt. 
+                    A hadjárat fordulópontja az el-alameini csata (1942) lett, amely a szövetségesek győzelmével és a tengelyhatalmak végső kiűzésével Észak-Afrikából zárult 1943-ban.
+                    A hadszíntér 1940. június 10-én nyílt meg, amikor Olaszország hadat üzent Nagy-Britanniának és Franciaországnak, kihasználva Franciaország küszöbön álló bukását. 
+                    Benito Mussolini célja az volt, hogy kiterjessze az olasz gyarmatbirodalmat Észak-Afrikában, ahol Olaszország már rendelkezett Líbiával. 
+                    Az olasz 10. hadsereg szeptemberben megtámadta a britek által ellenőrzött Egyiptomot, de Rodolfo Graziani tábornok erői gyorsan kifulladtak a rosszul szervezett offenzívában, és a britek Archibald Wavell tábornok vezetésével ellentámadásba lendültek (Compass hadművelet, 1940. december – 1941. február). 
+                    Ez a művelet katasztrofális vereséget mért az olaszokra, több mint 130 000 foglyot ejtve.
+                    Az olasz kudarc nyomán Németország közbelépett, és 1941 februárjában Erwin Rommel tábornok vezetésével megérkezett az Afrikakorps (Deutsches Afrikakorps), hogy támogassa szövetségesét. 
+                    Rommel, akit később „Sivatagi Rókaként” (Wüstenfuchs) emlegettek, villámgyorsan átvette az irányítást, és offenzívát indított a brit erők ellen. 
+                    Márciusban visszafoglalta a líbiai Cyrenaica régiót, és ostrom alá vette a stratégiai fontosságú Tobruk kikötőjét. A brit 8. hadsereg – amelyet később Bernard Montgomery vezetett – azonban szívós ellenállást tanúsított, és a frontvonal hullámzó csaták sorozatává vált a sivatagban.
+                    A hadszíntér jellegzetessége a sivatagi hadviselés volt: a nyílt terep és a hosszú ellátási vonalak kulcsfontosságúak voltak. 
+                    Mindkét félnek nehézséget okozott az üzemanyag, víz és lőszer szállítása, különösen a tengelyhatalmaknak, mivel a Földközi-tengeren a brit Királyi Haditengerészet és a máltai légierő folyamatosan támadta az utánpótlási útvonalakat. 
+                    Rommel sikerei, például az 1942-es gazalai csata és Tobruk elfoglalása, részben zseniális taktikájának, részben a brit kezdeti hibáinak köszönhetők, de az ellátási problémák miatt nem tudta tartósan kihasználni előnyét.
+                    A hadjárat döntő fordulata 1942-ben következett be az el-alameini csaták során. Az első el-alameini csata (július 1–27.) megállította Rommel előrenyomulását Egyiptom felé, mindössze 100 kilométerre a Szuezi-csatornától. 
+                    A második el-alameini csata (október 23. – november 11.), amelyet Montgomery vezetett, a szövetségesek győzelmét hozta. 
+                    A britek alaposan felkészültek: jelentős számbeli és technikai fölényt halmoztak fel (például Sherman tankokkal), és a légierő támogatásával áttörték a német-olasz vonalakat. 
+                    Rommel kénytelen volt visszavonulni, és ezzel a tengelyhatalmak elvesztették az kezdeményezést.
+                    Közben 1942 novemberében a szövetségesek végrehajtották a Fáklya hadműveletet (Operation Torch), amelynek során amerikai és brit csapatok partraszálltak Marokkóban és Algériában. 
+                    Ez kétfrontos harcot kényszerített a tengelyhatalmakra. 
+                    Rommel és az újonnan kinevezett Hans-Jürgen von Arnim tábornok erői Tunéziában próbáltak ellenállni, de az összehangolt szövetséges nyomás – kelet felől Montgomery, nyugat felől pedig Dwight D. Eisenhower csapatai – megtörte őket. 
+                    1943. május 13-án a tengelyhatalmak kapituláltak Tuniszban, több mint 250 000 foglyot hátrahagyva.
+                    Az afrikai hadszíntér jelentősége több szempontból kiemelkedő. A szövetséges győzelem biztosította a Szuezi-csatornát és a közel-keleti olajellátást, valamint megnyitotta az utat a dél-európai invázióhoz (Szicília, 1943). 
+                    A tengelyhatalmak számára a vereség súlyos veszteségeket jelentett emberben és anyagban, és Rommel mítosza is megfakult. A britek számára Montgomery és a 8. hadsereg diadala hatalmas morális lökést adott, Winston Churchill szavaival: „Ez nem a vég, nem is a vég kezdete, de talán a kezdet vége.”
+                    A hadjárat során a körülmények – a sivatagi hőség, a homokviharok és a logisztikai kihívások – mindkét felet próbára tették. 
+                    A veszteségek pontos száma vitatott, de a tengelyhatalmak körülbelül 620 000, a szövetségesek pedig 220 000 embert veszítettek (halottak, sebesültek és foglyok együtt). 
+                    Az észak-afrikai győzelem a szövetségesek első nagy sikere volt a nyugati fronton, és előkészítette a terepet a későbbi európai hadműveletekhez.
+                </p>
+                <img src="fenykepek/Rommel.jpg" alt="Rommel" id="Rommel">
+                <img src="fenykepek/Afrika.jpg" alt="Afrika" id="Afrika"> 
+            </div>
+
+            <div class="event"> 
+                <h3>1941: Pearl Harbor-i támadás</h3> 
+                <strong>Dátum: 1941. december 7.</strong> 
+                <p>A Pearl Harbor-i támadás a Japán Császári Haditengerészet által végrehajtott meglepetésszerű légi és tengeri offenzíva volt az Egyesült Államok csendes-óceáni flottájának fő támaszpontja, a Hawaii-szigeteken található Pearl Harbor ellen. 
+                    Ez az esemény közvetlenül az Egyesült Államok belépéséhez vezetett a második világháborúba, amely addig főként európai és ázsiai konfliktusként zajlott. 
+                    A támadás 2403 amerikai életet követelt, és alapjaiban változtatta meg a háború globális dinamikáját.
+                    A támadás hátterében Japán imperialista terjeszkedési politikája állt, amely az 1930-as években Délkelet-Ázsia és a Csendes-óceán térségének meghódítására irányult. 
+                    Miután Japán 1937-ben megszállta Kínát, az Egyesült Államok gazdasági szankciókkal, például olaj- és acélembargóval reagált, hogy nyomást gyakoroljon Tokióra. 
+                    Japán számára az amerikai csendes-óceáni flotta kiiktatása kulcsfontosságú volt ahhoz, hogy szabadon folytathassa hódításait a térségben, különösen a nyersanyagokban gazdag Délkelet-Ázsiában, például Malajziában és Indonéziában.
+                    A támadást Iszoroku Jamamoto admirális, a Japán Császári Haditengerészet főparancsnoka tervezte meg. 
+                    A hadművelet célja az volt, hogy egyetlen gyors és megsemmisítő csapással semlegesítsék az amerikai flottát, különösen a csatahajókat, így időt nyerve Japánnak a csendes-óceáni térség megszilárdítására. 
+                    A japán flotta hat repülőgép-hordozóból (Akagi, Kaga, Szórjú, Hirjú, Sóhó és Zuikaku) és több mint 400 repülőgépből álló támadóerőt mozgósított, amely titokban, észrevétlenül hajózott a Hawaii-szigetek közelébe.
+                    1941. december 7-én, vasárnap reggel 7:55-kor kezdődött a támadás, amikor az első hullámban 183 japán repülőgép – köztük torpedóbombázók, zuhanóbombázók és vadászgépek – csapott le Pearl Harborra. A második hullám (170 repülőgép) röviddel utána, 8:50 körül érkezett. 
+                    Az amerikaiak teljesen felkészületlenek voltak: a bázison állomásozó hajók nagy része kikötve állt, a légvédelem pedig minimális készültségben volt, mivel sokan azt hitték, hogy a távolság miatt Japán nem merne ilyen merész akciót végrehajtani. 
+                    A támadás során a japánok elsüllyesztették vagy súlyosan megrongálták az amerikai flotta nyolc csatahajóját (köztük az Arizona és az Oklahoma teljes elvesztésével), valamint számos más hadihajót, repülőgépet és infrastruktúrát.
+                    A USS Arizona katasztrófája különösen súlyos volt: egy páncéltörő bomba eltalálta a lőszerraktárát, amitől a hajó felrobbant, és 1177 tengerész vesztette életét – ez az áldozatok majdnem fele. Összesen 2403 amerikai halt meg (ebből 68 civil), és 1178-an megsebesültek. 
+                    A japán veszteségek minimálisak voltak: 29 repülőgép és 5 törpe-tengeralattjáró, valamint 64 katona elvesztése.
+                    Bár a támadás taktikai siker volt, stratégiai szempontból hibának bizonyult. A japánok nem semmisítették meg a kikötő üzemanyag-tartályait és javítóműhelyeit, amelyek később kulcsfontosságúak lettek az amerikai flotta újjáépítésében. 
+                    Ráadásul a három amerikai repülőgép-hordozó (Enterprise, Lexington és Saratoga) éppen nem tartózkodott a kikötőben, így sértetlenül maradtak, és később döntő szerepet játszottak a csendes-óceáni hadszíntéren, például a midwayi csatában.
+                    A támadás másnapján, december 8-án Franklin D. Roosevelt elnök „a gyalázat napjaként” („a date which will live in infamy”) emlegette az eseményt híres kongresszusi beszédében, és az Egyesült Államok hadat üzent Japánnak. Három nappal később, december 11-én Németország és Olaszország – Japán szövetségesei – hadat üzent az USA-nak, így az ország teljes mértékben bekapcsolódott a háborúba. 
+                    Pearl Harbor galvanizálta az amerikai közvéleményt, amely korábban nagyrészt elszigetelődő (izolacionista) állásponton volt, és egységes támogatást teremtett a háborús erőfeszítések mögött.
+                    A Pearl Harbor-i támadás fordulópontot jelentett a második világháborúban: aktivizálta az Egyesült Államok hatalmas ipari és katonai potenciálját, amely végül hozzájárult a tengelyhatalmak legyőzéséhez. 
+                    Japán számára a kezdeti siker hosszú távú kudarcot hozott, mivel alábecsülte az amerikaiak eltökéltségét és válaszreakcióját. 
+                    A történészek ma is vitatják, hogy Jamamoto, aki állítólag ellenezte az USA-val való nyílt konfrontációt, mennyire látta előre a támadás végzetes következményeit.
+                </p>
+                <img src="fenykepek/Bigboom.jpg" alt="Robban" id="Robban">
+                <img src="fenykepek/Pearlharbor.jpg" alt="Pearlharbor" id="Pearlharbor">
+            </div>
+
+            <div class="event"> 
+                <h3>1942–1945: A Csendes-óceáni hadszíntér (Midway-től a japán kapitulációig)</h3> 
+                <strong>Dátum: 1942. június 4. – 1945. szeptember 2.</strong>
+                <p>A Csendes-óceáni hadszíntér a második világháború egyik legnagyobb és legösszetettebb harctere volt, ahol az Egyesült Államok és szövetségesei a Japán Birodalom ellen küzdöttek a Csendes-óceán szigetvilágaiban és Ázsia part menti területein. 
+                    A midwayi csata (1942. június) fordulópontot jelentett, amely megtörte Japán tengeri fölényét, és lehetővé tette a szövetségesek számára, hogy offenzívába lendüljenek. 
+                    Ez az időszak a „szigetről szigetre” stratégiáról, hatalmas tengeri ütközetekről és a háború legpusztítóbb fegyvereinek – köztük az atombombák – bevetéséről ismert, amely végül Japán kapitulációjához vezetett.
+                    A midwayi csata 1942. június 4–7. között zajlott, amikor a japán flotta, Jamamoto Iszoroku admirális parancsnoksága alatt, megpróbálta elfoglalni a Midway-atollt, hogy csapdába csalja az amerikai repülőgép-hordozókat. 
+                    A japánok négy hordozóval (Akagi, Kaga, Szórjú, Hirjú) és 248 repülőgéppel támadtak, de az amerikai hírszerzés megfejtette a japán kódokat, így Chester Nimitz admirális felkészülten várta őket. 
+                    Az Egyesült Államok három hordozója (Enterprise, Hornet, Yorktown) és a midwayi bázisról felszálló gépek döntő csapást mértek: három japán hordozót elsüllyesztettek egyetlen nap alatt, a negyediket pedig másnap. 
+                    Japán 3000 embert és 4 kulcsfontosságú hajót veszített, míg az amerikaiak a Yorktownt és 307 embert. 
+                    Ez a vereség megállította Japán terjeszkedését, és a szövetségesek kezébe adta a stratégiai kezdeményezést.
+                    A midwayi győzelem után az Egyesült Államok 1942 augusztusában offenzívába lendült a Salamon-szigeteken, kezdve a guadalcanali hadjárattal (1942. augusztus 7. – 1943. február 9.). 
+                    A cél a japánok által épített repülőtér elfoglalása volt Henderson Fieldnél, amely fenyegette a szövetséges utánpótlási vonalakat Ausztrália felé. 
+                    Az amerikai tengerészgyalogosok partraszálltak, és hat hónapos, kegyetlen dzsungelharc következett, tengeri csatákkal (pl. Savo-szigeti csata) és légi összecsapásokkal tarkítva. 
+                    A japánok végül 1943 februárjában evakuálták erőiket, 24 000 embert veszítve, míg az amerikaiak 7000-et. 
+                    Ez volt az első jelentős szövetséges győzelem szárazföldön, amely megmutatta, hogy Japán visszaszorítható.
+                    1943-ban a szövetségesek a „szigetről szigetre” stratégiát alkalmazva haladtak előre. 
+                    Douglas MacArthur tábornok Új-Guinea és a Fülöp-szigetek felé nyomult, míg Nimitz a közép-csendes-óceáni szigeteket célozta meg. 
+                    A Gilbert- és Marshall-szigetek hadjárata (1943. november – 1944. február) során az amerikaiak elfoglalták Tarawát és Kwajaleint, súlyos veszteségek árán: Tarawán 1700 amerikai halt meg a japán bunkerek elleni rohamokban. 
+                    A japánok fanatikus ellenállása – gyakran öngyilkos rohamokkal – minden szigetért véres csatát tett szükségessé, de az amerikai tengeri és légi fölény fokozatosan felőrölte erőiket.
+                    1944-ben a Mariana-szigetek hadjárata (június–augusztus) hozott újabb áttörést. 
+                    A Fülöp-tengeri csata (1944. június 19–20.), más néven a „marianai pulykalövészet”, a japán légierő megsemmisítését eredményezte: 600 repülőgépet és három hordozót veszítettek, míg az amerikaiak alig 123 gépet. 
+                    Ez lehetővé tette Saipan, Guam és Tinian elfoglalását, ahonnan a B-29-es bombázók elérhették Japán főszigeteit. 
+                    Eközben MacArthur a Leyte-öböli csatában (1944. október 23–26.) visszaszerezte a Fülöp-szigetek egy részét. 
+                    Ez a történelem legnagyobb tengeri ütközete volt, amelyben az amerikai flotta végleg megtörte a japán haditengerészet erejét, elsüllyesztve négy hordozójukat és 10 000 embert veszítve.
+                    Az iwo dzsimai csata (1945. február 19. – március 26.) és az okinawai csata (1945. április 1. – június 22.) a háború legvéresebb ütközetei közé tartoztak. 
+                    Iwo Dzsimán 6800 amerikai és 20 000 japán halt meg, az ikonikus zászlófelvonás a Suribacsi-hegyen pedig a kitartás szimbóluma lett. 
+                    Okinawán 12 000 amerikai és 110 000 japán veszett oda, a civilek harmada pedig öngyilkosságot követett el a japán propaganda hatására. 
+                    Ezek a szigetek kulcsfontosságúak voltak, mert közelebb hozták a szövetségeseket Japán inváziójához.
+                    A végső csapást a légi hadviselés és az atombombák hozták. 
+                    1944 végétől a B-29-esek rendszeresen bombázták Japán városait, köztük a tokiói tűzbombázás (1945. március 9–10.) 100 000 ember halálát okozta. 
+                    1945. augusztus 6-án az Enola Gay B-29-es Hirosimára dobta az első atombombát („Little Boy”), azonnal 80 000 embert megölve, további tízezreket pedig sugárzás miatt később. 
+                    Augusztus 9-én Nagaszakira dobták a „Fat Man” bombát, 40 000 azonnali áldozattal. 
+                    A szovjetek ugyanekkor hadat üzentek Japánnak, és megszállták Mandzsúriát, elsöpörve a Kwantung-hadsereget.
+                    A pusztítás és a kilátástalan helyzet hatására Hirohito császár augusztus 15-én bejelentette a kapitulációt, amit szeptember 2-án írtak alá a USS Missouri fedélzetén, Douglas MacArthur és Nimitz jelenlétében. 
+                    A Csendes-óceáni hadszíntér veszteségei óriásiak voltak: az amerikaiak 170 000 halottat, a japánok 1,5–2 millió katonát és több százezer civilt veszítettek. 
+                    A midwayi csatától a kapitulációig tartó szövetséges offenzíva nemcsak Japán katonai erejét zúzta szét, hanem a háború új korszakát is megnyitotta az atomfegyverek bevetésével, átformálva a globális erőviszonyokat.
+                </p>
+                <img src="fenykepek/csendes_ocean.png" alt="csendes_ocean" id="csendes_ocean">
+                <img src="fenykepek/Okinawa.jpg" alt="Okinawa" id="Okinawa"> 
+            </div>
+
+            <div class="event"> 
+                <h3>1941–1943: A szovjetuniói hadszíntér (Keleti front)</h3> 
+                <strong>Dátum: 1941. június 22. – 1943. augusztus 23.</strong>
+                <p>A szovjetuniói hadszíntér, más néven a keleti front, a második világháború legnagyobb és legvéresebb hadműveleti területe volt, ahol a náci Németország és szövetségesei a Szovjetunió ellen harcoltak. 
+                    A konfliktus 1941-ben a Barbarossa hadművelettel indult, és a kurszki csatával (1943) elérte azt a pontot, ahonnan a szovjetek végleg átvették az irányítást a háború menetében. 
+                    A sztálingrádi csata (1942–1943) ennek a szakasznak a kulcsfontosságú fordulópontja volt, amely megtörte a német előrenyomulást.
+                    A keleti front előzményei 1939-re nyúlnak vissza, amikor Németország és a Szovjetunió aláírta a Molotov–Ribbentrop-paktumot, egy megnemtámadási egyezményt, amely titkos záradékaiban felosztotta Kelet-Európát. 
+                    Ez lehetővé tette a Szovjetunió számára Lengyelország keleti részének, a balti államok és Besszarábia elfoglalását, míg Németország megszállta Nyugat-Lengyelországot. 
+                    Adolf Hitler azonban hosszú távon a Szovjetunió elpusztítását tervezte, hogy megszerezze a „Lebensraumot” (életteret) a keleti szláv területeken, és felszámolja a kommunizmust.
+                    1941. június 22-én Németország megindította a Barbarossa hadműveletet, a történelem legnagyobb katonai invázióját. H
+                    árom hadseregcsoport – Észak (Leningrád felé), Közép (Moszkva felé) és Dél (Ukrajna és a Kaukázus felé) – összesen 3 millió katonával, 3400 harckocsival és 2700 repülőgéppel tört be a Szovjetunióba. 
+                    A német Blitzkrieg-stratégia kezdetben elsöprő sikert aratott: a Vörös Hadsereg felkészületlen volt, Joszif Sztálin pedig figyelmen kívül hagyta a támadásra utaló hírszerzési figyelmeztetéseket. 
+                    Az első hónapokban a németek hatalmas területeket foglaltak el, és százezreket ejtettek foglyul (például a minszki és szmolenszki bekerítéseknél).
+                    Azonban 1941 telére a német előrenyomulás megtorpant. Az orosz tél kegyetlen hidege, a kimerült ellátási vonalak és a szovjet ellenállás Moszkva előtt (Moszkvai csata, 1941. december – 1942. január) megállította a Wehrmachtot. 
+                    Georgij Zsukov tábornok vezetésével a szovjet ellentámadás visszavetette a németeket, bebizonyítva, hogy a villámháborús taktika nem működik a hatalmas szovjet térben és az elszánt védelem ellen.
+                    1942-ben Hitler új stratégiát dolgozott ki: a hangsúlyt a déli területekre, különösen a Kaukázus olajmezőire és a Volga menti Sztálingrádra helyezte. 
+                    A „Fall Blau” (Kék Terv) célja az volt, hogy elfoglalják ezeket a gazdasági szempontból létfontosságú régiókat, és elvágják a szovjet utánpótlási útvonalakat. 
+                    A német offenzíva 1942 nyarán kezdődött, és kezdetben sikeres volt: a Wehrmacht elfoglalta Ukrajna nagy részét és mélyen benyomult a Kaukázus felé.
+                    A sztálingrádi csata 1942. augusztus 23-án indult, amikor a német 6. hadsereg, Friedrich Paulus tábornok parancsnoksága alatt, megkezdte a város ostromát. 
+                    Sztálingrád stratégiai jelentősége a Volga folyó ellenőrzésében és ipari kapacitásában rejlett, szimbolikusan pedig Sztálin nevét viselte, így mindkét fél számára presztízskérdéssé vált. 
+                    A Luftwaffe masszív bombázásokkal rombolta le a várost, de a szovjet 62. hadsereg, Vaszilij Csujkov vezetésével, elszántan védekezett a romok között. A harcok utcai összecsapásokká, úgynevezett „Patkányháborúvá” (Rattenkrieg) fajultak, ahol minden házért és lépcsőért vérre menő küzdelem folyt.
+                    A szovjetek 1942. november 19-én megindították az Uránusz hadműveletet, egy hatalmas ellentámadást Zsukov és Konsztantyin Rokosszovszkij irányításával. 
+                    A cél a német 6. hadsereg bekerítése volt, kihasználva a gyengébb román és olasz szárnyakat. November 23-ra a szovjetek körbezárták Paulus 300 000 fős seregét. 
+                    Hitler megtiltotta a kitörést, légi utánpótlást ígérve, de a Luftwaffe nem tudta ellátni a csapdába esett erőket a szovjet légvédelem és a zord időjárás miatt. 
+                    A német helyzet 1943-ra reménytelenné vált: éhezés, fagyás és betegségek tizedelték a katonákat. Paulus 1943. január 31-én kapitulált, és február 2-án a maradék erők is megadták magukat. 
+                    A csata a tengelyhatalmaknak 800 000, a szovjeteknek 1,1 millió emberébe került, ezzel a történelem legvéresebb ütközete lett.
+                    A sztálingrádi vereség után a németek 1943-ban egy utolsó nagy offenzívát terveztek a keleti fronton, hogy visszaszerezzék a kezdeményezést. A kurszki kiszögellés – egy szovjet ellenőrzés alatt álló terület a frontvonalon – lett a célpont. 
+                    A „Citadella hadművelet” (Unternehmen Zitadelle) 1943. július 5-én kezdődött, a német 9. hadsereg (északon) és a 4. páncéloshadsereg (délen) vezetésével, Erich von Manstein és Walter Model tábornokok parancsnoksága alatt. 
+                    A németek több mint 2700 harckocsit és 800 000 embert vetettek be, köztük új fegyvereket, mint a Panther és Tiger tankokat.
+                    A szovjetek azonban felkészültek: Zsukov és Rokosszovszkij hatalmas védelmi rendszert épített ki, mély tankcsapdákkal, aknamezőkkel és 3000 harckocsival. 
+                    A hírszerzés előre jelezte a német terveket, így a Vörös Hadsereg számbeli fölényben várta az ellenséget. 
+                    A csata csúcspontja július 12-én a prohorovkai ütközet volt, ahol közel 1000 tank csapott össze – ez a történelem legnagyobb páncélos csatája. 
+                    A németek súlyos veszteségeket szenvedtek, és július 17-re az offenzíva kifulladt. 
+                    Augusztus 5-én a szovjet ellentámadás (Kutuzov és Rumjancev hadműveletek) visszafoglalta Orjolt és Harkovot, augusztus 23-ra pedig Kurszkot is, végleg megtörve a német páncélos erejét.
+                    A sztálingrádi és kurszki csaták a keleti front fordulópontjai voltak. 
+                    Sztálingrád megállította a német előrenyomulást, Kurszk pedig a Wehrmacht utolsó nagy támadó képességét zúzta szét. 
+                    A szovjet győzelmek lehetővé tették, hogy a Vörös Hadsereg átvegye a stratégiai kezdeményezést. A veszteségek hatalmasak voltak: a Barbarossa kezdete óta a németek 2-3 millió, a szovjetek 5-6 millió embert veszítettek (halottak, sebesültek, foglyok). 
+                    A kurszki csata után a németek már csak védekezésre kényszerültek, míg a szovjetek megkezdték a hatalmas ellentámadást, amely később Berlinig vezetett.
+                </p>
+                <img src="fenykepek/Barbarossa.jpg" alt="Barbarossa" id="Barbarossa">
+                <img src="fenykepek/sztalingrad.jpg" alt="sztalingrad" id="sztalingrad"> 
+            </div>
+
+            <div class="event"> 
+                <h3>1943–1945: A szovjetuniói hadszíntér (Keleti front)</h3> 
+                <strong>Dátum: 1943. február 2. – 1945. május 9.</strong>
+                <p>A keleti front 1943-tól 1945-ig a második világháború döntő szakaszát jelentette, amelyben a Szovjetunió fokozatosan visszaszorította a náci Németországot és szövetségeseit, végül Berlin elfoglalásával véget vetve a háborúnak Európában. 
+                    A sztálingrádi csata (1942–1943) és a kurszki csata (1943) után a Vörös Hadsereg átvette a stratégiai kezdeményezést, és a német Wehrmacht már csak védekezésre kényszerült. 
+                    Ez az időszak a szovjet ellentámadások sorozatáról, a tengelyhatalmak összeomlásáról és a háború legbrutálisabb harcairól ismert, amelyek milliók életét követelték mindkét oldalon.
+                    A sztálingrádi győzelem után, 1943 elején a szovjetek kihasználták a német 6. hadsereg kapitulációját, és azonnal offenzívába lendültek a Don menti térségben. 
+                    A Vörös Hadsereg, Georgij Zsukov és Alekszandr Vaszilevszkij tábornokok vezetésével, visszafoglalta Rosztovot és Harkovot februárban, de a németek Erich von Manstein parancsnoksága alatt ellentámadást indítottak (Harmadik harkovi csata, 1943. február–március). 
+                    Ez átmenetileg stabilizálta a frontot, ám a német erők kimerültek, és a kurszki csata kudarca júliusban végleg megpecsételte a tengelyhatalmak sorsát a keleti fronton.
+                    1943 második felében a szovjetek megindították a Dnyeper menti offenzívát. 
+                    A cél a Dnyeper folyó nyugati partjának elérése és Ukrajna keleti részének felszabadítása volt. 
+                    Augusztusban a Rumjancev hadművelet során Harkov végleg szovjet kézre került, majd szeptember–októberben a Vörös Hadsereg átkelt a Dnyeperen, hatalmas veszteségek árán hídfőket létesítve. 
+                    Novemberre Kijev, Ukrajna fővárosa is felszabadult, ami stratégiai és szimbolikus győzelmet jelentett. 
+                    A németek visszavonulása kaotikus volt, a „kiégett föld” taktikát alkalmazva próbálták lassítani a szovjet előrenyomulást, felégetve falvakat és infrastruktúrát.
+                    1944-ben a szovjet offenzívák új lendületet vettek. 
+                    Januárban a Leningrádi–Novgorodi hadművelet véget vetett Leningrád 872 napos ostromának, amely során a város lakossága éhezett és százezrek haltak meg. 
+                    A német Észak Hadseregcsoportot visszaszorították a balti államok felé. 
+                    Eközben délen a Dnyeper–Kárpátok hadművelet (1944. január–március) során a szovjetek felszabadították Nyugat-Ukrajnát, és a frontvonalat a Kárpátokig tolták előre, kiszorítva a németeket és magyar szövetségeseiket.
+                    A fordulópont 1944 nyarán érkezett el a Bagratyion hadművelettel (június 22. – augusztus 19.), amelyet a Barbarossa hadművelet harmadik évfordulóján indítottak. 
+                    Ez a történelem egyik legnagyobb katonai offenzívája volt, amelynek célja Fehéroroszország felszabadítása és a német Közép Hadseregcsoport megsemmisítése. 
+                    Négy szovjet front – összesen 1,7 millió katona, 4000 harckocsi és 24 000 tüzérségi eszköz – támadt egyszerre. 
+                    A németek nem voltak felkészülve ekkora erőre: a hadseregcsoportjuk összeomlott, 300 000 embert veszítettek (halottak, sebesültek, foglyok), és a frontvonal 500 kilométerrel nyugatabbra tolódott. 
+                    Minsk július 3-án szabadult fel, és a szovjetek elérték a Visztula folyót, Lengyelország keleti határát.
+                    1944 augusztusában a Lvov–Szandomierz hadművelet Délkelet-Lengyelországot és Nyugat-Ukrajnát szabadította fel, míg a Jászvásár–Kisinyov hadművelet (augusztus 20–29.) Romániát kényszerítette fegyverszünetre, és megnyitotta az utat a Balkán felé. 
+                    Bulgária és Magyarország is fokozatosan kiszállt a tengelyhatalmak szövetségéből, miközben a szovjetek előrenyomultak. 
+                    Októberben a balti offenzíva felszabadította Észtországot, Lettországot és Litvániát, a németeket Kelet-Poroszországba szorítva vissza.
+                    1945 elején a szovjetek megindították a végső csapást. 
+                    A Visztula–Odera hadművelet (január 12. – február 2.) során a Vörös Hadsereg áttörte a német védelmet Lengyelországban, felszabadítva Varsót és Krakkót, majd elérte az Odera folyót, alig 70 kilométerre Berlintől. 
+                    A német ellenállás ekkorra már szervezetlen volt, Hitler pedig irreális parancsokkal próbálta fenntartani a harcot. 
+                    Április 16-án a Berlini hadművelet megkezdődött: Zsukov 1. Belorusz Frontja és Ivan Konyev 1. Ukrán Frontja 2,5 millió katonával, 6000 harckocsival és 40 000 tüzérségi eszközzel rohanta le a német fővárost. 
+                    A Seelow-i magaslatoknál vívott csata (április 16–19.) után a szovjetek bekerítették Berlint.
+                    Április 25-én a szovjet és amerikai csapatok találkoztak az Elbánál, kettévágva Németországot. 
+                    Április 30-án Hitler öngyilkos lett a bunkerében, miközben a Vörös Hadsereg utcai harcokban elfoglalta Berlint. 
+                    Május 2-án a város védői megadták magukat, május 8-án pedig Németország aláírta a feltétel nélküli kapitulációt, amelyet május 9-én ratifikáltak Moszkvában – ez lett a Győzelem Napja a Szovjetunióban.
+                    A keleti front 1943–1945 közötti szakasza a történelem legkegyetlenebb és legvéresebb hadműveleteit hozta. 
+                    A szovjet veszteségek meghaladták a 10 milliót (halottak, sebesültek, foglyok), míg a németek és szövetségeseik 3-4 millió embert veszítettek. 
+                    A Vörös Hadsereg győzelme nemcsak a náci Németország bukását jelentette, hanem a Szovjetunió szuperhatalmi státuszát is megalapozta, átformálva Európa politikai térképét a hidegháború kezdetéig.
+                </p>
+                <img src="fenykepek/keleti_front.jpg" alt="keletifront" id="keletifront">
+            </div>
+
+            <div class="event">
+                <h3>1943-1945: Az olasz hadjárat</h3>
+                <strong>Dátum: 1943. július 9. – 1945. május 2.</strong>
+                <p> Helyszín: Olaszország (Szicília, Dél-Olaszország, Róma, Észak-Olaszország)
+                    Hadművelet neve: Számos kisebb hadművelet összefoglaló neve, pl. Husky (Szicília inváziója), Avalanche (Salerno), Shingle (Anzio).
+                    Résztvevők: Szövetséges erők (elsősorban az Egyesült Államok, Nagy-Britannia, Kanada, valamint más nemzetek, pl. szabad francia és lengyel erők) vs. a náci Németország és az Olasz Királyság (később csak Németország, miután Olaszország kapitulált).
+                    Az olasz hadjárat 1943-ban kezdődött, miután a szövetségesek sikeresen befejezték az észak-afrikai hadjáratot. A céljuk az volt, hogy kiüssék Olaszországot a háborúból – amely a tengelyhatalmak egyik gyengébb láncszeme volt –, és egy déli frontot nyissanak Európában, ezzel is enyhítve a szovjetekre nehezedő nyomást. 
+                    A hadjárat Winston Churchill brit miniszterelnök "Európa puha alhasa" stratégiájának részeként indult, bár a hegyes terep és a német védelem miatt végül keményebb ellenállásba ütközött, mint várták.
+                    Az invázió első lépése a Husky hadművelet volt, amely Szicília elfoglalására irányult. A szövetségesek több mint 160 000 katonát, 600 tankot és 1800 repülőgépet vontak össze az 1943. július 9-én kezdődő támadáshoz. A partraszállást alapos légi és tengeri bombázás előzte meg, hogy gyengítsék az olasz és német védelmet. 
+                    A hadjárat során a szövetségeseknek logisztikai kihívásokkal is szembe kellett nézniük, mivel az olasz félsziget hegyvidéki terepe és a keskeny utak megnehezítették az előrenyomulást.
+                    Szicília elfoglalása (1943. július 9. – augusztus 17.): A szövetséges erők Szicília déli partjainál (pl. Gela, Licata, Syracuse) szálltak partra. 
+                    Az olasz erők gyenge ellenállást tanúsítottak, de a német csapatok (pl. a Hermann Göring páncéloshadosztály) keményen harcoltak. Augusztusra a sziget elesett, ami Benito Mussolini bukásához vezetett: július 25-én letartóztatták, és az új olasz kormány fegyverszünetet kért.
+                    A szárazföldi invázió (1943. szeptember): Salerno (Avalanche hadművelet): Szeptember 9-én a szövetségesek az olasz szárazföldön, Salerno közelében szálltak partra. A németek heves ellentámadást indítottak, és majdnem visszaszorították a szövetségeseket a tengerbe, de a légi és tengeri támogatás megmentette a hídfőt.
+                    Olaszország szeptember 8-án kapitulált, de a német erők átvették az ország védelmét, és folytatták a harcot.
+                    A Gustav-vonal és Monte Cassino (1943-1944): A németek a Gustav-vonalat, egy erősen megerősített védelmi rendszert építettek ki Rómától délre. 
+                    A Monte Cassino-i csaták (1944. január-május) különösen véresek voltak: a szövetségesek négy nagy támadást indítottak, mire áttörték a vonalat. A híres bencés kolostort lebombázták, ami vitákat váltott ki, de végül a németek visszavonultak.
+                    Róma felszabadítása (1944. június 4.): Röviddel a D-nap előtt a szövetségesek bevették Rómát, az első tengelyhatalmi fővárost, amelyet felszabadítottak. Ez hatalmas propaganda-győzelem volt, bár a németek északabbra új védelmi vonalat (Gót-vonal) építettek ki.
+                    A Gót-vonal és a végső offenzíva (1944-1945): Az Appenninekben kiépített Gót-vonal megtörése lassú és költséges volt. 1945 áprilisában a szövetségesek általános támadást indítottak, és május 2-án a német erők megadták magukat Észak-Olaszországban, pár nappal Hitler halála után.
+                    Az olasz hadjárat több mint 600 000 szövetséges és tengelyhatalmi áldozatot követelt (halottak, sebesültek, eltűntek). 
+                    Bár nem érte el azt a stratégiai áttörést, amit Churchill remélt – a német főerők nagy része a keleti fronton és később Normandiában maradt –, fontos célokat teljesített: Olaszországot kiiktatta a tengelyhatalmak közül.
+                    Lefoglalta a német erőket, így segítette a D-nap sikerét. Repülőtereket biztosított a szövetséges légierőnek, ahonnan bombázhatták Németországot és a Balkánt.
+                    A hadjárat vége egybeesett a háború európai lezárásával: 1945. május 8-án Németország kapitulált. A szövetségesek multikulturális hadserege (indiai, új-zélandi, marokkói stb. egységek) színesítette a hadjáratot.
+                    A maffia állítólag segítette a szövetségeseket Szicíliában, cserébe a börtönben lévő vezetőik szabadon engedéséért.
+                    Az Anzio-partraszállás (1944. január) kezdetben kudarcnak indult, de végül áttörést hozott.
+                </p>
+                <img src="fenykepek/olasz_terkep.jpg" alt="olaszterkep" id="olaszterkep">
+                <img src="fenykepek/Tigertank.jpg" alt="alvotigris" id="alvotigris">  
+            </div>
+
+            <div class="event">
+                <h3>1944: D-nap (Normandiai partraszállás)</h3>
+                <strong>Dátum: 1944. június 6.</strong>
+                <p> elyszín: Normandia, Északnyugat-Franciaország.
+                    Hadművelet neve: Overlord hadművelet (Operation Overlord).
+                    Résztvevők: Szövetséges erők (elsősorban az Egyesült Államok, Nagy-Britannia, Kanada, valamint kisebb mértékben más nemzetek, például Franciaország szabad erői) vs. a náci Németország hadserege (Wehrmacht).
+                    A D-nap a második világháború egyik fordulópontja volt, amely a szövetséges erők által indított legnagyobb szabású tengeri inváziót jelentette. 
+                    1944-re a szovjet Vörös Hadsereg már jelentős nyomást gyakorolt a német erőkre a keleti fronton, és a szövetségesek felismerték, hogy egy második front megnyitása Nyugat-Európában elengedhetetlen a náci Németország legyőzéséhez. 
+                    Az Overlord hadműveletet Dwight D. Eisenhower amerikai tábornok, a szövetséges erők főparancsnoka irányította, és célja az volt, hogy áttörjék a németek által kiépített Atlanti Falat, majd megkezdjék Franciaország, később pedig Nyugat-Európa felszabadítását.
+                    A partraszállás előkészítése hónapokon át tartott, és titkos hadműveletekkel, például a Fortitude hadművelettel párosult, amelynek során a szövetségesek félrevezették a németeket arról, hogy az invázió fő célpontja Pas-de-Calais lesz, nem pedig Normandia. 
+                    Több mint 156 000 katona, 7000 hajó (beleértve hadihajókat, partraszálló járműveket és szállítóhajókat) és 11 000 repülőgép vett részt az akcióban. 
+                    Az invázió időzítése kulcsfontosságú volt: a kedvező időjárási és árapály-viszonyok miatt végül június 6-át választották, miután az eredetileg tervezett június 5-i időpontot egy vihar miatt elhalasztották.
+                    A D-nap hajnalán a szövetséges erők öt normandiai partszakaszon – Utah, Omaha, Gold, Juno és Sword – indították meg a támadást. Mindegyik partszakasznak megvolt a maga stratégiai jelentősége és nehézsége:
+                    Utah és Omaha (amerikai szektorok): Az Omaha-parton különösen heves ellenállás fogadta a szövetségeseket a német bunkerekből és géppuskafészkekből érkező tűz miatt. Az amerikai csapatok itt súlyos veszteségeket szenvedtek, de végül sikerült áttörniük.
+                    Gold és Sword (brit szektorok): A brit erők viszonylag gyorsan haladtak előre, különösen Swordnál, ahol közelebb kerültek Caen városához, egy kulcsfontosságú célponthoz.
+                    Juno (kanadai szektor): A kanadai csapatok kemény harcok árán, de sikeresen elfoglalták a kijelölt területet, összekötve a brit szektorokat.
+                    A légi és tengeri támogatás létfontosságú volt: bombázók és hadihajók ágyúzták a német állásokat, míg ejtőernyősök a hátországban szabotálták az ellenséges utánpótlási vonalakat és hidakat robbantottak fel.
+                    A D-nap végén a szövetségesek biztosították a partszakaszokat, és megkezdhették a hídfőállások kiépítését. Bár a veszteségek jelentősek voltak – különösen Omaha Beach-en –, az invázió sikeresnek bizonyult. 
+                    A következő hetekben további százezrek érkeztek Normandia partjaira, és a szövetségesek megindították a német erők kiszorítását Franciaországból. Augusztusra Párizs felszabadult, és a német hadsereg visszavonulásra kényszerült Nyugat-Európában.
+                    A normandiai partraszállás nemcsak katonai, hanem lelki győzelem is volt: reményt adott a megszállt országok lakosságának, és megmutatta, hogy a náci Németország veresége elérhető közelségbe került. Ez az esemény kulcsfontosságú lépés volt a háború 1945-ös befejezéséhez vezető úton.
+                    A németek nem számítottak arra, hogy a szövetségesek ilyen kedvezőtlen időjárási körülmények között támadnak, ami meglepetésszerű előnyt biztosított.
+                    A híres "Higgins-csónakok" (LCVP) kulcsszerepet játszottak a csapatok partra juttatásában.
+                    A D-nap inspirálta számos híres filmet, például A leghosszabb nap (1962) és Ryan közlegény megmentése (1998).
+                </p>
+                <img src="fenykepek/Partraszallas.jpg" alt="partaszallas" id="partaszallas"> 
+                <img src="fenykepek/terv.png" alt="tervterkep" id="tervterkep"> 
+            </div>
+
+            <div class="event">
+                <h3>1944-1945: Szövetséges offenzíva a Nyugati-fronton</h3>
+                <strong>Dátum: 1944. június 6. – 1945. május 8.</strong>
+                <p> Helyszín: Nyugat-Európa (Franciaország, Belgium, Hollandia, Németország).
+                    Hadművelet neve: Több hadművelet összefoglaló neve, pl. Overlord (Normandia), Cobra (kitörés), Market Garden (hollandiai légi hadművelet), Bulge (Ardenneki offenzíva ellentámadása)
+                    Résztvevők: Szövetséges erők (elsősorban az Egyesült Államok, Nagy-Britannia, Kanada, szabad francia erők és más nemzetek) vs. a náci Németország (Wehrmacht).
+                    A Nyugati-fronton indított szövetséges offenzíva a D-nappal (1944. június 6.) kezdődött, amikor a normandiai partraszállás megnyitotta a második frontot Európában. 
+                    A cél az volt, hogy felszabadítsák Nyugat-Európát, áttörjék a német védelmet, és végül Berlinbe nyomulva véget vessenek a náci uralomnak. A hadjáratot Dwight D. Eisenhower tábornok irányította, és a szövetségesek hatalmas logisztikai és katonai erőforrásokat mozgósítottak a siker érdekében.
+                    A D-nap után a szövetségesek hídfőállásokat építettek ki Normandiában, és mesterséges kikötőket (Mulberry kikötők) hoztak létre az utánpótlás biztosítására. 
+                    Több mint 2 millió katona, 500 000 jármű és 15 000 repülőgép vett részt az offenzívában a következő hónapokban. A légi fölény kulcsfontosságú volt: a szövetséges bombázók folyamatosan támadták a német infrastruktúrát, vasutakat és ipari létesítményeket.
+                    Kitörés Normandiából (1944. július-augusztus): Cobra hadművelet: Július végén az amerikai erők áttörték a német vonalakat Normandiában, lehetővé téve a gyors előrenyomulást. A Falaise-zseb bezárásával több tízezer német katonát ejtettek foglyul.
+                    Augusztus 25-én Párizs felszabadult, ami hatalmas morális győzelmet jelentett.
+                    Előrenyomulás a Szajnán túl (1944. szeptember): A szövetségesek felszabadították Észak-Franciaországot és Belgiumot, szeptember 4-én elfoglalva Antwerpent, egy kulcsfontosságú kikötőt. Az előrenyomulás azonban lassult az utánpótlási vonalak megnyúlása és a német ellenállás miatt.
+                    Market Garden hadművelet (1944. szeptember): Ez a merész légi és szárazföldi offenzíva Hollandiában arra irányult, hogy átkeljenek a Rajnán, és megkerüljék a német Siegfried-vonalat. Bár Arnhemig eljutottak, a hidat nem tudták megtartani, így a hadművelet kudarcot vallott, és az offenzíva megtorpant.
+                    A Siegfried-vonal áttörése (1944. október-december): A németek által kiépített Siegfried-vonal (Westwall) betonbunkerek és aknamezők sora volt. Az őszi harcok, például az aacheni csata, lassúak és költségesek voltak, de a szövetségesek fokozatosan nyomultak előre.
+                    Ardenneki offenzíva (Bulge, 1944. december – 1945. január): A németek utolsó nagy ellentámadása a Nyugati-fronton az Ardennekben indult december 16-án, hogy visszaszorítsák a szövetségeseket és elfoglalják Antwerpent. 
+                    A „Kiemelkedés csatája” (Battle of the Bulge) kezdetben meglepte a szövetségeseket, de az amerikai ellenállás (pl. Bastogne védelme) és a légi támogatás végül megtörte a német támadást.
+                    A Rajna átkelése és Németország elfoglalása (1945. március-május): Remageni híd (1945. március 7.): Az amerikaiak váratlanul elfoglaltak egy épen maradt hidat a Rajnánál, felgyorsítva az előrenyomulást.
+                    Március-áprilisban a szövetségesek körülzárták a Ruhr-vidéket, foglyul ejtve 300 000 német katonát.
+                    Áprilisban a brit és amerikai erők találkoztak a szovjetekkel az Elbánál, és május 7-én Németország aláírta a feltétel nélküli kapitulációt.
+                    Az offenzíva során a szövetségesek több mint 1 millió katonát veszítettek (halottak, sebesültek, eltűntek), míg a német veszteségek meghaladták a 2 milliót. A Nyugati-front sikere döntő szerepet játszott a náci Németország bukásában:
+                    Felszabadította Franciaországot, Belgiumot, Hollandiát és Luxemburgot. Elpusztította a német ipari kapacitást (pl. a Ruhr-vidék). Lehetővé tette a szovjetekkel való találkozást, megosztva Németországot. 
+                    A háború Európában 1945. május 8-án, a Győzelem Napján (VE Day) ért véget, amikor a német kapituláció életbe lépett. A szövetségesek Patton és Montgomery tábornokok rivalizálása gyakran bonyolította a stratégiai döntéseket.
+                    A normandiai Mulberry kikötők mérnöki bravúrnak számítottak, de egy vihar hamar tönkretette az egyiket. Az Ardenneki csata során a rossz időjárás eleinte megakadályozta a légi támogatást, ami kritikus pillanatokat hozott.
+                </p>
+                <img src="fenykepek/nyugati.jpg" alt="tervrajz" id="tervrajz"> 
+                <img src="fenykepek/front.jpg" alt="frontok" id="frontok"> 
+            </div>
+
+            <div class="event"> 
+                <h3>1945: Berlin ostroma</h3> 
+                <strong>Dátum: 1945. április 16. – 1945. május 2.</strong>
+                <p>Berlin ostroma a második világháború utolsó nagy hadművelete volt a keleti fronton, amely a náci Németország végső vereségét és a Harmadik Birodalom bukását hozta el. 
+                    A Szovjetunió Vörös Hadserege, Georgij Zsukov és Ivan Konyev tábornokok parancsnoksága alatt, elsöprő erővel támadta meg a német fővárost, hogy megtörje a maradék ellenállást és elfoglalja Adolf Hitler központját. 
+                    Ez a csata nemcsak katonai, hanem szimbolikus jelentőséggel is bírt, hiszen Berlin elfoglalása a tengelyhatalmak teljes kapitulációját jelentette Európában.
+                    A Berlini hadművelet előzményei 1945 elejére nyúlnak vissza, amikor a szovjet Visztula–Odera hadművelet során a Vörös Hadsereg elérte az Odera folyót, mindössze 70 kilométerre Berlintől. 
+                    A német védelem ekkorra már összeomlott: a Wehrmacht kimerült, az utánpótlás elégtelen volt, és a civilek körében is pánik uralkodott. 
+                    Hitler azonban elutasította a kapitulációt, és a végsőkig való kitartásra utasította erőit, irreális reményeket táplálva a háború megfordításáról. 
+                    A szovjetek eközben hatalmas erőket vontak össze: az 1. Belorusz Front (Zsukov) és az 1. Ukrán Front (Konyev) összesen 2,5 millió katonát, 6250 harckocsit, 7500 repülőgépet és 41 600 tüzérségi eszközt állított csatasorba.
+                    Az ostrom 1945. április 16-án kezdődött, amikor a szovjet tüzérség minden addiginál nagyobb erejű barrázzsal árasztotta el a német állásokat. 
+                    Zsukov csapatai a Seelow-i magaslatoknál ütköztek a legerősebb ellenállásba, ahol a német 9. hadsereg, Walther Wenck és Theodor Busse tábornokok vezetésével, elkeseredetten védekezett. 
+                    A magaslatok stratégiai fontosságúak voltak, mert innen nyílt közvetlen út Berlin felé. 
+                    A szovjetek számbeli és technikai fölénye azonban gyorsan felőrölte a német védelmet: április 19-re a magaslatokat elfoglalták, és a Vörös Hadsereg megkezdte a főváros bekerítését.
+                    Április 20-án, Hitler 56. születésnapján a szovjet tüzérség elérte Berlin külvárosait, és megkezdődött a város közvetlen ostroma. 
+                    A német védelem főként a Volkssturm (népi milícia) és a Hitlerjugend fiatal, gyakran 14-16 éves tagjaiból állt, akiket fanatikus parancsnokok hajtottak a harcba. 
+                    A reguláris Wehrmacht-erők már alig voltak működőképesek, a légvédelem pedig összeomlott a Luftwaffe üzemanyag- és repülőgép-hiánya miatt. 
+                    A szovjetek eközben két irányból nyomultak előre: Zsukov északkeletről, Konyev pedig délről, versenyezve, hogy melyikük éri el először a városközpontot.
+                    Április 25-re a szovjetek teljesen körbezárták Berlint, elvágva a német erőket a külvilágtól. 
+                    Ugyanezen a napon a Vörös Hadsereg és az amerikai csapatok találkoztak az Elba folyónál Torgaunál, ezzel kettévágva Németországot. 
+                    Berlinben a harcok utcai összecsapásokká fajultak: a szovjet T-34-es harckocsik és Katyusa rakétavetők rombolták a várost, míg a németek barikádokat építettek, és mesterlövészekkel próbálták lassítani az előrenyomulást. 
+                    A civilek pincékben és metróalagutakban kerestek menedéket, miközben az élelmiszer- és vízhiány mindennapossá vált.
+                    Április 26-án a szovjetek elérték a Spree folyót, és megkezdték a központi kormányzati negyed ostromát. 
+                    A Reichstag, a náci hatalom szimbóluma, kulcsfontosságú célponttá vált. 
+                    Hitler a Führerbunkerben rejtőzött, ahonnan egyre zavarosabb parancsokat adott ki, miközben tábornokai, mint Wilhelm Keitel és Alfred Jodl, tehetetlenül figyelték az összeomlást. 
+                    Április 30-án, amikor a szovjetek már néhány száz méterre voltak a bunkertól, Hitler és felesége, Eva Braun öngyilkosságot követtek el. 
+                    Utolsó akaratában Joseph Goebbels propagandaminisztert nevezte ki kancellárnak, de a helyzet menthetetlen volt.
+                    Május 1-jén a Reichstagért folyó harcok csúcspontjukra értek. 
+                    A szovjet 150. lövészhadosztály katonái, Mihail Jegorov és Meliton Kantaria, kitűzték a vörös zászlót az épület tetejére, jelezve a győzelmet – ez a pillanat a háború egyik legismertebb képe lett. 
+                    Goebbels aznap öngyilkos lett családjával együtt, a német parancsnokság pedig káoszba süllyedt. 
+                    Május 2-án hajnalban Helmuth Weidling tábornok, Berlin védelmének parancsnoka, aláírta a kapitulációt, és a városban megszűntek a harcok.
+                    Berlin ostroma hatalmas veszteségekkel járt: a szovjetek 80 000 halottat és 280 000 sebesültet szenvedtek el, míg a német katonai és civil áldozatok száma 100 000 és 200 000 között mozgott. 
+                    A város 70%-a romokban hevert, a lakosság pedig éhezett és kiszolgáltatottá vált. 
+                    A győzelem azonban nem csak katonai diadal volt: a szovjetek számára a náci rezsim feletti bosszút és a Szovjetunió szuperhatalmi státuszának megerősítését jelentette. 
+                    Május 8-án Németország aláírta a feltétel nélküli kapitulációt Reimsben, amit május 9-én Moszkvában ratifikáltak – ez lett a Győzelem Napja, amely a keleti front hosszú és véres küzdelmének végét jelölte.
+                </p>
+                <img src="fenykepek/2vh.jpg" alt="SzovjetZaszlo" id="SzovjetZaszlo">  
+            </div>
+        </section>
+
+        <!-- Térkép szekció hozzáadása -->
+        <section class="map-section">
+            <h2>Második Világháborús Interaktív térkép</h2>
+            <div id="map"></div>
+            <input type="range" id="slider" min="1939" max="1945" value="1939" step="1" oninput="updateMap(this.value)">
+            <p>Év: <span id="year">1939</span></p>
+        </section>
+    </div>
+
+    <!-- Leaflet JS és saját szkriptek betöltése -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="IIvh_script.js"></script>
+</body>
+</html>
