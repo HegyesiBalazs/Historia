@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jelszo = trim($_POST['jelszo']);
 
     // Regisztrációs adatbázis használata a felhasználó ellenőrzéséhez
-    $stmt = $db->kapcs_reg->prepare("SELECT * FROM regisztralas WHERE email = ?");
+    $stmt = $db->kapcs_reg->prepare("SELECT * FROM regisztralas WHERE email = ? AND email_hitelesitve = TRUE");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $eredmeny = $stmt->get_result();
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['username'] = $felhasznalo['keresztnev'];
     } else {
         // Hibaüzenet tárolása session-ben
-        $_SESSION['login_error'] = "Hibás email vagy jelszó!";
+        $_SESSION['login_error'] = "Hibás email, jelszó vagy az email nincs hitelesítve!";
     }
 }
 

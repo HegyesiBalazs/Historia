@@ -1,6 +1,5 @@
 <?php
 class Adatbazis {
-    private $conn;
     private $host = "localhost";
     private $felhasznalo = "root";
     private $jelszo = "";
@@ -12,33 +11,31 @@ class Adatbazis {
 
     public function __construct() {
         try {
-            // Regisztrációs adatbázis kapcsolat
             $this->kapcs_reg = new mysqli(
                 $this->host, 
                 $this->felhasznalo, 
                 $this->jelszo, 
-                "regisztralas_db"
+                $this->database
             );
             $this->kapcs_reg->set_charset("utf8");
 
-            // Jelszó módosítási adatbázis kapcsolat
             $this->kapcs_jelszo = new mysqli(
                 $this->host, 
                 $this->felhasznalo, 
                 $this->jelszo, 
-                "jelszo_db"
+                $this->database
             );
             $this->kapcs_jelszo->set_charset("utf8");
 
-            // Jegyzetek adatbázis kapcsolat
             $this->kapcs_jegyzet = new mysqli(
                 $this->host, 
                 $this->felhasznalo, 
                 $this->jelszo, 
-                "jegyzetek_db"
+                $this->database
             );
             $this->kapcs_jegyzet->set_charset("utf8");
 
+            // Kapcsolódási hibák ellenőrzése
             if ($this->kapcs_reg->connect_error || 
                 $this->kapcs_jelszo->connect_error || 
                 $this->kapcs_jegyzet->connect_error) {
