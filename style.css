@@ -764,12 +764,13 @@ p{
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 #alcim {
     background: #333;
     color: #fff;
-    padding: 5px ; 
+    padding: 0px ; 
     text-align: center;
 }
 
@@ -780,7 +781,7 @@ h4 {
     text-align: center;
     
     
-}
+} 
 
 .fejezet {
     padding: 20px; 
@@ -930,6 +931,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .ketvhkozt_kepek{
@@ -1003,6 +1005,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .hideghaboru_kepek{
@@ -1129,6 +1132,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .hu_elsovh_kepek{
@@ -1187,6 +1191,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .masodikvh_kepek{
@@ -1216,6 +1221,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .horthykorszak_kepek{
@@ -1322,6 +1328,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .hu_masodikvh_kepek{
@@ -1398,7 +1405,7 @@ h4 {
     margin: 0;
     padding: 0;
     color: white;
-    background-image: url(fenykepek/);
+    background-image: url(fenykepek/56_3.jpg);
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed; 
@@ -1411,6 +1418,7 @@ h4 {
     color: #fff;
     padding: 20px ; 
     text-align: center;
+    height: 120px;
 }
 
 .rakosi_kepek{
