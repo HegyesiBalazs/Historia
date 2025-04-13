@@ -7,6 +7,8 @@
 
 html, body {
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 } 
 
 header{
@@ -138,6 +140,7 @@ body{
     min-height: 100vh; /* A body legalább a teljes képernyőmagasságot kitölti */
     display: flex;
     flex-direction: column;
+
 }
 
 .slogen {
@@ -145,16 +148,7 @@ body{
     padding: 20px;
     background-color: burlywood;
     color: black;
-}
-
-.slogen h2 {
-    font-size: 2rem; /* Alapértelmezett betűméret */
-    margin-bottom: 10px;
-}
-
-.slogen p {
-    font-size: 1.2rem; /* Alapértelmezett betűméret */
-    margin: 10px 0;
+    font-size: larger;
 }
 
 @media screen and (max-width: 900px) {
@@ -170,6 +164,7 @@ body{
 @media screen and (max-width: 600px) {
     .slogen {
         padding: 10px; /* Csökkentett padding mobilon */
+        top: 100%;
     }
 
     .slogen h2 {
@@ -235,7 +230,7 @@ body{
     position: absolute;
     height: 20px;
     width: 20px;
-    background: linear-gradient(#FF0000, #FBFAF3, #2B7239);
+    background: linear-gradient(#887055, #887055, #887055);
     top: 0;
     right: -7px;
     border-radius: 50%;
@@ -251,11 +246,14 @@ body{
     position: absolute;
     height: 20px;
     width: 20px;
-    background: linear-gradient(#FF0000, #FBFAF3, #2B7239);
+    background: linear-gradient(#887055, #887055, #887055);
     top: 0;
     left: -12.5px;
     border-radius: 50%;
     z-index: 10;
+}
+.bal{
+    left: 80px;
 }
 
 .szoveg{
@@ -372,7 +370,7 @@ body{
     align-items: center;
     position: absolute;
     margin: 0;
-    top: 60%;
+    top: 40%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -392,12 +390,13 @@ body{
     top: 0;
     height: 100%;
     width: 5px;
-    background: linear-gradient(#1164d1, #FBFAF3, #e2df09);
+    background: linear-gradient(#7a573a, #977242, #b3966b);
     border-radius: 50px;
     animation: LineAnimated 5s linear forwards;
     z-index: -1;
-
 }
+
+
 
 
 
@@ -428,7 +427,13 @@ body{
             max-width: 900px;
         } */
 
-        
+        .idovonal_valaszto{
+            top: 50%;
+        }
+        .idovonal{
+            margin-top: 600px;
+        }
+
         /* balra teszi az idővonalat */
         .idovonal::after {
             left: 40px;
@@ -481,6 +486,14 @@ body{
 /*.......görgetéses*/
 /*optimalizálás teló és tablet*/
 
+@media screen and (max-width: 750px) {
+    .szoveg{
+        width: 400px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .title {
         position: static; /* Távolítsd el az abszolút pozícionálást */
@@ -494,10 +507,24 @@ body{
     }
      
     .szoveg{
-        width: 200px;
+        width: 400px;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
+}
+@media screen and (max-width: 550px) {
+    .idovonal_valaszto{
+        top: 60%;
+    }
+    .idovonal{
+        margin-top: 500px;
+    }
+    .szoveg{
+        width: 280px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
 }
 
 /*rólunk rész*/
