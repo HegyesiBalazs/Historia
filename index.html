@@ -35,117 +35,116 @@
     </header>
 
 
-    <div id="div1" class="div hidden">
-        <div class="kontent">
-            <span id="bezarGomb" class="close">×</span>
-            <h2 id="h2b">Regisztráció</h2>
-            <div id="messageContainer"></div>
-            <form id="regisztracio-form">
-                <label for="firstname"></label>
-                <input type="text" id="firstname" class="input" placeholder="Vezetéknév" autocomplete="off" name="vezeteknev" required>
-    
-                <label for="lastname"></label>
-                <input type="text" id="lastname" class="input" placeholder="Keresztnév" autocomplete="off" name="keresztnev" required>
-    
-                <label for="email"></label>
-                <input type="email" id="email" class="input" placeholder="Email" autocomplete="off" name="email" required>
-                
-                <label for="password"></label>
-                <input type="password" id="password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
-                <p id="message">A jelszó <span id="strenght"></span></p>
+<!-- Regisztráció Modul -->
+<div id="div1" class="div hidden">
+    <div class="kontent">
+        <span id="bezarGomb" class="close">×</span>
+        <h2 id="h2b">Regisztráció</h2>
+        <div id="reg-message-container"></div>
+        <form id="regisztracio-form">
+            <label for="firstname"></label>
+            <input type="text" id="firstname" class="input" placeholder="Vezetéknév" autocomplete="off" name="vezeteknev" required>
 
-                <label for="password2"></label>
-                <input type="password" id="password2" class="input" placeholder="Jelszó mégegyszer" autocomplete="off" required>
-                
-                <button class="gomb" type="submit">Regisztráció</button>
-                <p>Van már fiókod? <a href="#" id="bejelink">Jelentkezz be!</a></p>
-            </form>
-        </div>
-    </div>
+            <label for="lastname"></label>
+            <input type="text" id="lastname" class="input" placeholder="Keresztnév" autocomplete="off" name="keresztnev" required>
 
-    <!-- Bejelentkezés Modal -->
-    <div id="div2" class="div hidden">
-        <div class="kontent">
-            <span class="close" id="bezarGomb2">×</span>
-            <h2 id="h2b">Bejelentkezés</h2>
-            <div id="messageContainer"></div>
-            <form id="bejelentkezes-form">
-                <label for="login-email"></label>
-                <input type="email" id="login-email" class="input" placeholder="Email" autocomplete="off" name="email" required>
-        
-                <label for="login-password"></label>
-                <input type="password" id="login-password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
-        
-                <button class="gomb" type="submit">Bejelentkezés</button>
-        
-                <p>Nincs még fiókod? <a href="#" id="regilink">Regisztrálj!</a></p>
-                <p><a href="#" id="forgot-password-link">Elfelejtetted a jelszavad?</a></p>
-                <p><a href="#" id="change-email-link">Email cím módosítása</a></p>
-    
-                <div class="emlekezzram">
-                    <input type="checkbox" id="emlekezzRam" name="emlekezzRam">
-                    <label for="emlekezzRam">Emlékezz rám</label>
-                </div>
-            </form>
-        </div>
+            <label for="email"></label>
+            <input type="email" id="email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+            
+            <label for="password"></label>
+            <input type="password" id="password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
+            <p id="message">A jelszó <span id="strenght"></span></p>
+            
+            <button class="gomb" type="submit">Regisztráció</button>
+            <p>Van már fiókod? <a href="#" id="bejelink">Jelentkezz be!</a></p>
+        </form>
     </div>
-    
-    <!-- Elfelejtett jelszó Modal -->
-    <div id="forgot-password-modal" class="div hidden">
-        <div class="kontent">
-            <span id="forgot-close" class="close">×</span>
-            <h2>Elfelejtett jelszó</h2>
-            <div id="messageContainer"></div>
-            <form id="forgot-password-form">
-                <label for="forgot-email"></label>
-                <input type="email" id="forgot-email" class="input" placeholder="Email" autocomplete="off" name="email" required>
-                <button class="gomb" type="submit">Kód küldése</button>
-            </form>
-            <form id="reset-password-form" style="display: none;">
-                <label for="reset-code"></label>
-                <input type="text" id="reset-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
-                <label for="new-password"></label>
-                <input type="password" id="new-password" class="input" placeholder="Új jelszó" autocomplete="off" name="new_password" required>
-                <button class="gomb" type="submit">Jelszó módosítása</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Email módosítás Modal -->
-    <div id="change-email-modal" class="div hidden">
-        <div class="kontent">
-            <span id="change-email-close" class="close">×</span>
-            <h2>Email cím módosítása</h2>
-            <div id="messageContainer"></div>
-            <form id="change-email-form">
-                <label for="new-email"></label>
-                <input type="email" id="new-email" class="input" placeholder="Új email cím" autocomplete="off" name="new_email" required>
-                <button class="gomb" type="submit">Kód küldése</button>
-            </form>
-            <form id="verify-email-form" style="display: none;">
-                <label for="verify-code"></label>
-                <input type="text" id="verify-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
-                <label for="verify-new-email"></label>
-                <input type="email" id="verify-new-email" class="input" placeholder="Új email cím" autocomplete="off" name="new_email" required>
-                <button class="gomb" type="submit">Email módosítása</button>
-            </form>
-        </div>
-    </div>
+</div>
 
-    <!-- Email hitelesítés Modal -->
-    <div id="email-hitelesites-modal" class="div hidden">
-        <div class="kontent">
-            <span id="hitelesites-close" class="close">×</span>
-            <h2>Email Hitelesítés</h2>
-            <div id="hitelesites-error" style="color: red; display: none;"></div>
-            <form id="hitelesites-form">
-                <label for="kod">Hitelesítő kód:</label>
-                <input type="text" id="kod" name="kod" class="input" required>
-                <button class="gomb" type="submit">Hitelesítés</button>
-            </form>
-            <p><a href="#" id="uj-kod-link">Új kód küldése</a></p>
-        </div>
+<!-- Bejelentkezés Modul -->
+<div id="div2" class="div hidden">
+    <div class="kontent">
+        <span class="close" id="bezarGomb2">×</span>
+        <h2 id="h2b">Bejelentkezés</h2>
+        <div id="login-message-container"></div>
+        <form id="bejelentkezes-form">
+            <label for="login-email"></label>
+            <input type="email" id="login-email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+    
+            <label for="login-password"></label>
+            <input type="password" id="login-password" class="input" placeholder="Jelszó" autocomplete="off" name="jelszo" required>
+    
+            <button class="gomb" type="submit">Bejelentkezés</button>
+    
+            <p>Nincs még fiókod? <a href="#" id="regilink">Regisztrálj!</a></p>
+            <p><a href="#" id="forgot-password-link">Elfelejtetted a jelszavad?</a></p>
+            <p><a href="#" id="change-email-link">Email cím módosítása</a></p>
+
+            <div class="emlekezzram">
+                <input type="checkbox" id="emlekezzRam" name="emlekezzRam">
+                <label for="emlekezzRam">Emlékezz rám</label>
+            </div>
+        </form>
     </div>
+</div>
+
+<!-- Elfelejtett jelszó Modul -->
+<div id="forgot-password-modal" class="div hidden">
+    <div class="kontent">
+        <span id="forgot-close" class="close">×</span>
+        <h2>Elfelejtett jelszó</h2>
+        <div id="forgot-message-container"></div>
+        <form id="forgot-password-form">
+            <label for="forgot-email"></label>
+            <input type="email" id="forgot-email" class="input" placeholder="Email" autocomplete="off" name="email" required>
+            <button class="gomb" type="submit">Kód küldése</button>
+        </form>
+        <form id="reset-password-form" style="display: none;">
+            <label for="reset-code"></label>
+            <input type="text" id="reset-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
+            <label for="new-password"></label>
+            <input type="password" id="new-password" class="input" placeholder="Új jelszó" autocomplete="off" name="new_password" required>
+            <p id="new-message" style="display: none;">A jelszó <span id="new-strength"></span></p>
+            <button class="gomb" type="submit">Jelszó módosítása</button>
+        </form>
+    </div>
+</div>
+
+<!-- Email módosítás Modul -->
+<div id="change-email-modal" class="div hidden">
+    <div class="kontent">
+        <span id="change-email-close" class="close">×</span>
+        <h2>Email cím módosítása</h2>
+        <div id="change-email-message-container"></div>
+        <form id="change-email-form">
+            <label for="new-email"></label>
+            <input type="email" id="new-email" class="input" placeholder="Új email cím" autocomplete="off" name="new_email" required>
+            <button class="gomb" type="submit">Kód küldése</button>
+        </form>
+        <form id="verify-email-form" style="display: none;">
+            <label for="verify-code"></label>
+            <input type="text" id="verify-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
+            <label for="verify-new-email"></label>
+            <input type="email" id="verify-new-email" class="input" placeholder="Új email cím" autocomplete="off" name="new_email" required>
+            <button class="gomb" type="submit">Email módosítása</button>
+        </form>
+    </div>
+</div>
+
+<!-- Email hitelesítés Modul -->
+<div id="email-hitelesites-modal" class="div hidden">
+    <div class="kontent">
+        <span id="hitelesites-close" class="close">×</span>
+        <h2>Email Hitelesítés</h2>
+        <div id="hitelesites-message-container" style="color: red; display: none;"></div>
+        <form id="hitelesites-form">
+            <label for="kod">Hitelesítő kód:</label>
+            <input type="text" id="kod" name="kod" class="input" required>
+            <button class="gomb" type="submit">Hitelesítés</button>
+        </form>
+        <p><a href="#" id="uj-kod-link">Új kód küldése</a></p>
+    </div>
+</div>
 
     <!-- Kijelentkezés gomb (Ez jelenik meg, ha be vagy jelentkezve) -->
 <!-- <button id="logout">Kijelentkezés</button> -->
@@ -153,7 +152,19 @@
 
 
 <!-- <div class="slogen">
-    <h2>A század, ami megváltoztatta a világot – ismerd meg a 20. századot!</h2>
+    <h2>Értsd meg a múltat, hogy alakíthasd a jövőt.</h2>
+    <p class="slogenp">
+        Weboldalunk célja, hogy átfogó, hiteles és közérthető módon mutassa be a 20. század történelmét – az első világháborútól a hidegháború végéig,
+         a forradalmaktól a technológiai áttörésekig.
+        Cikkek, idővonalak, ritkán látott fotók, korabeli dokumentumok és személyes történetek segítségével segítünk megérteni azt az évszázadot, 
+        amely alapjaiban formálta a mai világunkat.
+    </p>
+
+    <h3>Melyik történelemre vagy kíváncsi?</h3>
+    <p class="slogenp">
+        A magyar történelemhez nyomd meg a Magyar történelem gombot!
+        Az egyetemes történelemhez pedig válaszd az Egyetemes történelem gombot!
+    </p>
 
 </div> -->
 

@@ -1,41 +1,44 @@
 <?php
 session_start();
 require_once 'adatbazis.php';
-
-if (!isset($_SESSION['reg_email'])) {
-    header("Location: index.html");
-    exit();
-}
-
-$email = $_SESSION['reg_email'];
-$uzenet = '';
+header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
     $kod = trim($_POST['kod']);
 
-    // Kód ellenőrzése
-    $stmt = $db->kapcs_reg->prepare("SELECT * FROM email_hitelesites WHERE email = ? AND kod = ? AND lejarat > NOW()");
+    // Adatbázis kapcsolat inicializálása
+    $db = new Adatbazis();
+    $kapcsolat = $db->getKapcsolat();
+
+    if (!$email) {
+        echo json_encode(['success' => false, 'message' => 'Email cím nem található!']);
+        exit();
+    }
+
+    $stmt = $kapcsolat->prepare("SELECT * FROM email_hitelesites WHERE email = ? AND kod = ? AND lejarat > NOW()");
     $stmt->bind_param("ss", $email, $kod);
     $stmt->execute();
     $eredmeny = $stmt->get_result();
 
     if ($eredmeny->num_rows > 0) {
-        // Email hitelesítése
-        $stmt = $db->kapcs_reg->prepare("UPDATE regisztralas SET email_hitelesitve = TRUE WHERE email = ?");
+        $stmt = $kapcsolat->prepare("UPDATE regisztralas SET email_hitelesitve = TRUE WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
-        // Kód törlése
-        $stmt = $db->kapcs_reg->prepare("DELETE FROM email_hitelesites WHERE email = ?");
+        $stmt = $kapcsolat->prepare("DELETE FROM email_hitelesites WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
-        $_SESSION['reg_success'] = "Sikeres hitelesítés! Jelentkezz be!";
-        unset($_SESSION['reg_email']);
-        header("Location: index.html");
-        exit();
+        echo json_encode(['success' => true]);
     } else {
-        $uzenet = "Érvénytelen vagy lejárt kód!";
+        echo json_encode(['success' => false, 'message' => 'Érvénytelen vagy lejárt kód!']);
     }
+
+    // Statement lezárása
+    $stmt->close();
+} else {
+    echo json_encode(['success' => false, 'message' => 'Érvénytelen kérés!']);
 }
+exit();
 ?>
