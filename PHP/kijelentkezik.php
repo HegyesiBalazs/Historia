@@ -1,10 +1,8 @@
 <?php
-session_start(); // Munkamenet indítása
+session_start();
+header('Content-Type: application/json');
 
-// Munkamenet teljes törlése
+$valasz = ['success' => true, 'message' => 'Sikeresen kijelentkeztél!'];
 session_destroy();
-
-// Átirányítás a kezdőlapra
-header("Location: index.html");
-exit(); // Script azonnali befejezése
+echo json_encode($valasz);
 ?>

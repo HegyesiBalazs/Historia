@@ -1,33 +1,40 @@
 <?php
+// PHPMailer fájlok manuális betöltése
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/SMTP.php';
+
+// Névtér importálása
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php'; // Composer autoload, ha PHPMailer-t használsz
+use PHPMailer\PHPMailer\SMTP;
 
 function kuldo_email($cimzett, $targy, $uzenet) {
     $mail = new PHPMailer(true);
     try {
         // SMTP beállítások
         $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // SMTP szerver címe
-            $mail->SMTPAuth = true;
-            $mail->Username = 'te.email@gmail.com'; // A te e-mail címed
-            $mail->Password = 'jelszo_vagy_app_jelszo'; // Jelszó vagy alkalmazásjelszó
-            $mail->SMTPSecure = 'tls'; // Titkosítás: tls vagy ssl
-            $mail->Port = 587; // Portszám
+        $mail->Host = 'smtp.gmail.com'; // Gmail SMTP szerver
+        $mail->SMTPAuth = true;
+        $mail->Username = 'marosvolgyimartin@gmail.com'; // A te email címed
+        $mail->Password = 'ddzv mjuj xfds ukds'; // Alkalmazásjelszó (NEM a normál Gmail jelszó!)
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Titkosítás
+        $mail->Port = 587; // Gmail SMTP port
 
         // Feladó és címzett
-        $mail->setFrom('noreply@historia.hu', 'Historia');
+        $mail->setFrom('marosvolgyimartin@gmail.com', 'Historia'); // A te email címed és feladó neve
         $mail->addAddress($cimzett);
 
         // Email tartalom
-        $mail->isHTML(false);
+        $mail->isHTML(false); // Szöveges email
         $mail->Subject = $targy;
         $mail->Body = $uzenet;
 
         $mail->send();
         return true;
     } catch (Exception $e) {
+        // Hibakezelés, pl. naplózás vagy hibaüzenet
+        error_log("Email küldési hiba: {$mail->ErrorInfo}");
         return false;
     }
 }

@@ -2,19 +2,27 @@
 session_start();
 require_once 'adatbazis.php';
 
-// PHPMailer betöltése
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/SMTP.php';
+
+// Névtér importálása
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require 'vendor/autoload.php'; // Composer autoload fájl, ha Composert használsz
+use PHPMailer\PHPMailer\SMTP;
 
 header('Content-Type: application/json');
 
 $email = $_POST['email'] ?? '';
 $valasz = ['sikeres' => false];
 
+// Adatbázis kapcsolat inicializálása
+$db = new Adatbazis();
+$kapcsolat = $db->getKapcsolat();
+
 if (!empty($email)) {
-    // Ellenőrzés a regisztralas_db-ben, hogy létezik-e az email
-    $stmt = $db->kapcs_reg->prepare("SELECT * FROM regisztralas WHERE email = ?");
+    // Ellenőrzés a regisztralas táblában, hogy létezik-e az email
+    $stmt = $kapcsolat->prepare("SELECT * FROM regisztralas WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $eredmeny = $stmt->get_result();
@@ -23,8 +31,8 @@ if (!empty($email)) {
         $kod = bin2hex(random_bytes(4)); // 8 karakteres véletlenszerű kód
         $lejarat = date('Y-m-d H:i:s', strtotime('+1 hour')); // 1 óra érvényesség
 
-        // Kód mentése a jelszo_db-be, reg_email mezővel
-        $stmt = $db->kapcs_jelszo->prepare("INSERT INTO jelszomodosit (kod, kod_lejar, reg_email) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE kod = ?, kod_lejar = ?");
+        // Kód mentése a jelszomodosit táblába
+        $stmt = $kapcsolat->prepare("INSERT INTO jelszomodosit (kod, kod_lejar, reg_email) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE kod = ?, kod_lejar = ?");
         $stmt->bind_param("sssss", $kod, $lejarat, $email, $kod, $lejarat);
         $stmt->execute();
 
@@ -32,17 +40,17 @@ if (!empty($email)) {
         $mail = new PHPMailer(true); // True: kivételkezelés bekapcsolása
 
         try {
-            // SMTP beállítások (pl. Gmail használata esetén)
+            // SMTP beállítások
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // SMTP szerver címe
+            $mail->Host = 'smtp.gmail.com'; // Gmail SMTP szerver
             $mail->SMTPAuth = true;
-            $mail->Username = 'te.email@gmail.com'; // A te e-mail címed
-            $mail->Password = 'jelszo_vagy_app_jelszo'; // Jelszó vagy alkalmazásjelszó
-            $mail->SMTPSecure = 'tls'; // Titkosítás: tls vagy ssl
+            $mail->Username = 'marosvolgyimartin@gmail.com'; // A te email címed
+            $mail->Password = 'ddzv mjuj xfds ukds'; // Alkalmazásjelszó
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Titkosítás
             $mail->Port = 587; // Portszám
 
             // Feladó és címzett
-            $mail->setFrom('noreply@historia.hu', 'Historia'); // Feladó e-mail és név
+            $mail->setFrom('marosvolgyimartin@gmail.com', 'Historia'); // A te email címed
             $mail->addAddress($email); // Címzett (a felhasználó e-mail címe)
 
             // E-mail tartalom
@@ -62,6 +70,11 @@ if (!empty($email)) {
     }
 } else {
     $valasz['uzenet'] = 'Add meg az email címedet!';
+}
+
+// Statement lezárása
+if (isset($stmt)) {
+    $stmt->close();
 }
 
 echo json_encode($valasz);

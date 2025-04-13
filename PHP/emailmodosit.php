@@ -2,15 +2,23 @@
 session_start();
 require_once 'adatbazis.php';
 
-// PHPMailer betöltése
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/SMTP.php';
+
+// Névtér importálása
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require 'vendor/autoload.php';
+use PHPMailer\PHPMailer\SMTP;
 
 header('Content-Type: application/json');
 
 $action = $_POST['action'] ?? '';
 $valasz = ['sikeres' => false];
+
+// Adatbázis kapcsolat inicializálása
+$db = new Adatbazis();
+$kapcsolat = $db->getKapcsolat();
 
 if (!isset($_SESSION['user_id'])) {
     $valasz['uzenet'] = 'Jelentkezz be az email módosításához!';
@@ -23,7 +31,7 @@ if ($action === 'request_code') {
     
     if (!empty($new_email)) {
         // Ellenőrzés, hogy az új email már létezik-e
-        $stmt = $db->kapcs_reg->prepare("SELECT * FROM regisztralas WHERE email = ?");
+        $stmt = $kapcsolat->prepare("SELECT * FROM regisztralas WHERE email = ?");
         $stmt->bind_param("s", $new_email);
         $stmt->execute();
         $eredmeny = $stmt->get_result();
@@ -34,8 +42,8 @@ if ($action === 'request_code') {
             $kod = bin2hex(random_bytes(4)); // 8 karakteres véletlenszerű kód
             $lejarat = date('Y-m-d H:i:s', strtotime('+1 hour')); // 1 óra érvényesség
 
-            // Kód mentése a jelszo_db-be
-            $stmt = $db->kapcs_jelszo->prepare("INSERT INTO jelszomodosit (kod, kod_lejar, reg_email) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE kod = ?, kod_lejar = ?");
+            // Kód mentése a jelszomodosit táblába
+            $stmt = $kapcsolat->prepare("INSERT INTO jelszomodosit (kod, kod_lejar, reg_email) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE kod = ?, kod_lejar = ?");
             $stmt->bind_param("sssss", $kod, $lejarat, $new_email, $kod, $lejarat);
             $stmt->execute();
 
@@ -45,12 +53,12 @@ if ($action === 'request_code') {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'te.email@gmail.com'; // Cseréld ki
-                $mail->Password = 'jelszo_vagy_app_jelszo'; // Cseréld ki
-                $mail->SMTPSecure = 'tls';
+                $mail->Username = 'marosvolgyimartin@gmail.com'; // A te email címed
+                $mail->Password = 'ddzv mjuj xfds ukds'; // Alkalmazásjelszó
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
-                $mail->setFrom('noreply@historia.hu', 'Historia');
+                $mail->setFrom('marosvolgyimartin@gmail.com', 'Historia');
                 $mail->addAddress($new_email);
                 $mail->isHTML(true);
                 $mail->Subject = 'Email módosítási kód';
@@ -72,20 +80,20 @@ if ($action === 'request_code') {
 
     if (!empty($kod) && !empty($new_email)) {
         // Kód ellenőrzése
-        $stmt = $db->kapcs_jelszo->prepare("SELECT * FROM jelszomodosit WHERE kod = ? AND reg_email = ? AND kod_lejar > NOW()");
+        $stmt = $kapcsolat->prepare("SELECT * FROM jelszomodosit WHERE kod = ? AND reg_email = ? AND kod_lejar > NOW()");
         $stmt->bind_param("ss", $kod, $new_email);
         $stmt->execute();
         $eredmeny = $stmt->get_result();
 
         if ($eredmeny->num_rows > 0) {
-            // Email frissítése a regisztralas_db-ben
+            // Email frissítése a regisztralas táblában
             $user_id = $_SESSION['user_id'];
-            $stmt = $db->kapcs_reg->prepare("UPDATE regisztralas SET email = ? WHERE id = ?");
+            $stmt = $kapcsolat->prepare("UPDATE regisztralas SET email = ? WHERE id = ?");
             $stmt->bind_param("si", $new_email, $user_id);
             
             if ($stmt->execute()) {
-                // Kód törlése a jelszo_db-ből
-                $stmt = $db->kapcs_jelszo->prepare("DELETE FROM jelszomodosit WHERE kod = ? AND reg_email = ?");
+                // Kód törlése a jelszomodosit táblából
+                $stmt = $kapcsolat->prepare("DELETE FROM jelszomodosit WHERE kod = ? AND reg_email = ?");
                 $stmt->bind_param("ss", $kod, $new_email);
                 $stmt->execute();
                 
@@ -99,6 +107,11 @@ if ($action === 'request_code') {
     } else {
         $valasz['uzenet'] = 'Add meg a kódot és az új email címet!';
     }
+}
+
+// Statement lezárása
+if (isset($stmt)) {
+    $stmt->close();
 }
 
 echo json_encode($valasz);

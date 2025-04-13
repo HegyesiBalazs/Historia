@@ -3,15 +3,21 @@ session_start();
 require_once 'adatbazis.php';
 require_once 'email_kuldo.php';
 
+header('Content-Type: application/json');
+$valasz = ['success' => false];
+
 if (!isset($_GET['email']) || $_GET['email'] !== $_SESSION['reg_email']) {
-    header("Location: index.html");
+    $valasz['message'] = 'Érvénytelen email cím!';
+    echo json_encode($valasz);
     exit();
 }
 
 $email = $_GET['email'];
+$db = new Adatbazis();
+$kapcsolat = $db->getKapcsolat();
 
 // Régi kódok törlése
-$stmt = $db->kapcs_reg->prepare("DELETE FROM email_hitelesites WHERE email = ?");
+$stmt = $kapcsolat->prepare("DELETE FROM email_hitelesites WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 
@@ -19,7 +25,7 @@ $stmt->execute();
 $kod = sprintf("%06d", mt_rand(100000, 999999));
 $lejarat = date("Y-m-d H:i:s", strtotime("+10 minutes"));
 
-$stmt = $db->kapcs_reg->prepare("INSERT INTO email_hitelesites (email, kod, lejarat) VALUES (?, ?, ?)");
+$stmt = $kapcsolat->prepare("INSERT INTO email_hitelesites (email, kod, lejarat) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $email, $kod, $lejarat);
 $stmt->execute();
 
@@ -27,11 +33,13 @@ $stmt->execute();
 $targy = "Új hitelesítő kód";
 $uzenet = "Kedves felhasználó!\n\nÚj hitelesítő kódod: $kod\n\nA kód 10 percig érvényes.";
 if (kuldo_email($email, $targy, $uzenet)) {
-    $_SESSION['uzenet'] = "Új kód elküldve!";
+    $valasz['success'] = true;
+    $valasz['message'] = "Új kód elküldve!";
 } else {
-    $_SESSION['uzenet'] = "Hiba történt az email küldése során.";
+    $valasz['message'] = "Hiba történt az email küldése során.";
 }
 
-header("Location: index.html");
+$stmt->close();
+echo json_encode($valasz);
 exit();
 ?>

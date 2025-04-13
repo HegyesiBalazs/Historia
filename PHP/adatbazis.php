@@ -4,45 +4,38 @@ class Adatbazis {
     private $felhasznalo = "root";
     private $jelszo = "";
     private $database = "historia";
-
-    public $kapcs_reg;
-    public $kapcs_jelszo;
-    public $kapcs_jegyzet;
+    private $kapcsolat;
 
     public function __construct() {
         try {
-            $this->kapcs_reg = new mysqli(
-                $this->host, 
-                $this->felhasznalo, 
-                $this->jelszo, 
+            $this->kapcsolat = new mysqli(
+                $this->host,
+                $this->felhasznalo,
+                $this->jelszo,
                 $this->database
             );
-            $this->kapcs_reg->set_charset("utf8");
 
-            $this->kapcs_jelszo = new mysqli(
-                $this->host, 
-                $this->felhasznalo, 
-                $this->jelszo, 
-                $this->database
-            );
-            $this->kapcs_jelszo->set_charset("utf8");
+            // Karakterkódolás beállítása
+            $this->kapcsolat->set_charset("utf8");
 
-            $this->kapcs_jegyzet = new mysqli(
-                $this->host, 
-                $this->felhasznalo, 
-                $this->jelszo, 
-                $this->database
-            );
-            $this->kapcs_jegyzet->set_charset("utf8");
-
-            // Kapcsolódási hibák ellenőrzése
-            if ($this->kapcs_reg->connect_error || 
-                $this->kapcs_jelszo->connect_error || 
-                $this->kapcs_jegyzet->connect_error) {
-                throw new Exception("A kapcsolódás sikertelen");
+            // Kapcsolódási hiba ellenőrzése
+            if ($this->kapcsolat->connect_error) {
+                throw new Exception("A kapcsolódás sikertelen: " . $this->kapcsolat->connect_error);
             }
         } catch (Exception $e) {
             die("Kapcsolódási hiba: " . $e->getMessage());
+        }
+    }
+
+    // Getter a kapcsolat lekérdezéséhez
+    public function getKapcsolat() {
+        return $this->kapcsolat;
+    }
+
+    // Kapcsolat lezárása
+    public function __destruct() {
+        if ($this->kapcsolat) {
+            $this->kapcsolat->close();
         }
     }
 }
