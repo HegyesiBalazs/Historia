@@ -12,17 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $stmt = $db->kapcs_reg->prepare("SELECT * FROM email_hitelesites WHERE email = ? AND kod = ? AND lejarat > NOW()");
+    $db = new Adatbazis();
+    $kapcsolat = $db->getKapcsolat();
+
+    $stmt = $kapcsolat->prepare("SELECT * FROM email_hitelesites WHERE email = ? AND kod = ? AND lejarat > NOW()");
     $stmt->bind_param("ss", $email, $kod);
     $stmt->execute();
     $eredmeny = $stmt->get_result();
 
     if ($eredmeny->num_rows > 0) {
-        $stmt = $db->kapcs_reg->prepare("UPDATE regisztralas SET email_hitelesitve = TRUE WHERE email = ?");
+        $stmt = $kapcsolat->prepare("UPDATE regisztralas SET email_hitelesitve = TRUE WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
-        $stmt = $db->kapcs_reg->prepare("DELETE FROM email_hitelesites WHERE email = ?");
+        $stmt = $kapcsolat->prepare("DELETE FROM email_hitelesites WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
@@ -30,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo json_encode(['success' => false, 'message' => 'Érvénytelen vagy lejárt kód!']);
     }
+
+    $stmt->close();
 } else {
     echo json_encode(['success' => false, 'message' => 'Érvénytelen kérés!']);
 }

@@ -161,53 +161,84 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Kód küldése az emailre (elfelejtett jelszó) */
-    document.getElementById("forgot-password-form").addEventListener("submit", (e) => {
+    document.getElementById("elfelejtett-jelszo-form").addEventListener("submit", (e) => {
         e.preventDefault();
-        const email = document.getElementById("forgot-email").value;
-
+        const email = document.getElementById("email").value;
+    
+        if (!email) {
+            errorElement.style.display = "block";
+            errorElement.textContent = "Add meg az email címedet!";
+            return;
+        }
+    
         fetch("ujkod.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "email=" + encodeURIComponent(email)
+            body: `email=${encodeURIComponent(email)}`
         })
         .then((response) => response.json())
         .then((data) => {
             if (data.sikeres) {
-                setSuccessMessage(forgotMessageContainer, "A kód elküldve az email címedre!");
-                document.getElementById("forgot-password-form").style.display = "none";
-                document.getElementById("reset-password-form").style.display = "block";
+                errorElement.style.display = "block";
+                errorElement.style.color = "green";
+                errorElement.textContent = "Kód elküldve! Ellenőrizd az email címedet.";
             } else {
-                setErrorMessage(forgotMessageContainer, data.uzenet || "Hiba történt!");
+                errorElement.style.display = "block";
+                errorElement.style.color = "red";
+                errorElement.textContent = data.uzenet || "Hiba történt!";
             }
         })
         .catch(() => {
-            setErrorMessage(forgotMessageContainer, "Hiba történt a kérés során!");
+            errorElement.style.display = "block";
+            errorElement.style.color = "red";
+            errorElement.textContent = "Hiba történt a kérés során!";
         });
     });
 
     /* Jelszó módosítása */
-    document.getElementById("reset-password-form").addEventListener("submit", (e) => {
+    document.getElementById("uj-jelszo-form").addEventListener("submit", (e) => {
         e.preventDefault();
-        const code = document.getElementById("reset-code").value;
-        const newPassword = document.getElementById("new-password").value;
-
-        fetch("uj_jelszo.php", {
+        const code = document.getElementById("code").value;
+        const newPassword = document.getElementById("new_password").value;
+    
+        if (!code || !newPassword) {
+            errorElement.style.display = "block";
+            errorElement.style.color = "red";
+            errorElement.textContent = "Töltsd ki az összes mezőt!";
+            return;
+        }
+    
+        console.log("Küldött adatok:", { code, newPassword });
+    
+        fetch("/teszt/uj_jeszo.php", {  // Abszolút útvonal
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "code=" + encodeURIComponent(code) + "&new_password=" + encodeURIComponent(newPassword)
+            body: `code=${encodeURIComponent(code)}&new_password=${encodeURIComponent(newPassword)}`
         })
-        .then((response) => response.json())
+        .then((response) => {
+            console.log("Válasz státusz:", response.status);
+            if (!response.ok) {
+                throw new Error(`HTTP hiba! Státusz: ${response.status}`);
+            }
+            return response.json();
+        })
         .then((data) => {
+            console.log("Szerver válasz:", data);
             if (data.sikeres) {
-                setSuccessMessage(forgotMessageContainer, data.message || "Jelszó sikeresen módosítva!");
-                forgotPasswordModal.classList.add("hidden");
-                div2.classList.remove("hidden");
+                errorElement.style.display = "block";
+                errorElement.style.color = "green";
+                errorElement.textContent = "Jelszó sikeresen módosítva!";
             } else {
-                setErrorMessage(forgotMessageContainer, data.uzenet || "Érvénytelen vagy lejárt kód!");
+                errorElement.style.display = "block";
+                errorElement.style.color = "red";
+                errorElement.textContent = data.uzenet || "Hiba történt!";
             }
         })
-        .catch(() => {
-            setErrorMessage(forgotMessageContainer, "Hiba történt a kérés során!");
+        .catch((error) => {
+            console.error("Hiba:", error);
+            errorElement.style.display = "block";
+            errorElement.style.color = "red";
+            errorElement.textContent = "Hiba történt a kérés során: " + error.message;
         });
     });
 
@@ -296,20 +327,29 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const kod = document.getElementById("kod").value;
         const email = localStorage.getItem("reg_email");
-
+    
         if (!email) {
             hitelesitesError.style.display = "block";
             hitelesitesError.textContent = "Hiba: Email cím nem található!";
             return;
         }
-
+    
+        console.log("Küldött adatok:", { email, kod }); // Naplózás: milyen adatokat küldünk
+    
         fetch("hitelesites_api.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: `kod=${encodeURIComponent(kod)}&email=${encodeURIComponent(email)}`
         })
-        .then((response) => response.json())
+        .then((response) => {
+            console.log("Válasz státusz:", response.status); // Naplózás: HTTP státusz
+            if (!response.ok) {
+                throw new Error(`HTTP hiba! Státusz: ${response.status}`);
+            }
+            return response.json();
+        })
         .then((data) => {
+            console.log("Szerver válasz:", data); // Naplózás: szerver válasza
             if (data.success) {
                 hitelesitesError.style.display = "none";
                 setSuccessMessage(regMessageContainer, "Sikeres hitelesítés! Jelentkezz be!");
@@ -321,9 +361,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 hitelesitesError.textContent = data.message || "Érvénytelen vagy lejárt kód!";
             }
         })
-        .catch(() => {
+        .catch((error) => {
+            console.error("Hiba:", error); // Naplózás: fetch hiba
             hitelesitesError.style.display = "block";
-            hitelesitesError.textContent = "Hiba történt a kérés során!";
+            hitelesitesError.textContent = "Hiba történt a kérés során: " + error.message;
         });
     });
 

@@ -8,12 +8,12 @@ $kod = $_POST['code'] ?? '';
 $uj_jelszo = $_POST['new_password'] ?? '';
 $valasz = ['sikeres' => false];
 
-// Adatbázis kapcsolat inicializálása
+error_log("uj_jeszo.php: Kód: $kod, Új jelszó: $uj_jelszo"); // Naplózás
+
 $db = new Adatbazis();
 $kapcsolat = $db->getKapcsolat();
 
 if (!empty($kod) && !empty($uj_jelszo)) {
-    // Kód ellenőrzése a jelszomodosit táblában
     $stmt = $kapcsolat->prepare("SELECT * FROM jelszomodosit WHERE kod = ? AND kod_lejar > NOW()");
     $stmt->bind_param("s", $kod);
     $stmt->execute();
@@ -21,21 +21,27 @@ if (!empty($kod) && !empty($uj_jelszo)) {
 
     if ($eredmeny->num_rows > 0) {
         $sor = $eredmeny->fetch_assoc();
-        $reg_email = $sor['reg_email']; // Email cím lekérése a jelszomodosit táblából
+        $reg_email = $sor['reg_email'];
         $titkosított_jelszo = password_hash($uj_jelszo, PASSWORD_DEFAULT);
 
-        // Jelszó frissítése a jelszomodosit táblában
+        error_log("uj_jeszo.php: Titkosított jelszó hossza: " . strlen($titkosított_jelszo)); // Jelszó hossza
+
         $stmt = $kapcsolat->prepare("UPDATE jelszomodosit SET uj_jelszo = ?, kod = NULL, kod_lejar = NULL WHERE kod = ?");
         $stmt->bind_param("ss", $titkosított_jelszo, $kod);
         
         if ($stmt->execute()) {
-            // Jelszó frissítése a regisztralas táblában
             $stmt_reg = $kapcsolat->prepare("UPDATE regisztralas SET jelszo = ? WHERE email = ?");
             $stmt_reg->bind_param("ss", $titkosított_jelszo, $reg_email);
-            $stmt_reg->execute();
+            if (!$stmt_reg->execute()) {
+                error_log("SQL hiba a regisztralas frissítésekor: " . $stmt_reg->error); // SQL hiba naplózása
+                $valasz['uzenet'] = "Hiba történt a regisztralas tábla frissítése közben!";
+                echo json_encode($valasz);
+                exit();
+            }
             
             $valasz['sikeres'] = true;
         } else {
+            error_log("SQL hiba a jelszomodosit frissítésekor: " . $stmt->error); // SQL hiba naplózása
             $valasz['uzenet'] = 'Hiba történt a jelszó módosítása közben!';
         }
     } else {
@@ -45,7 +51,6 @@ if (!empty($kod) && !empty($uj_jelszo)) {
     $valasz['uzenet'] = 'Töltsd ki az összes mezőt!';
 }
 
-// Statement lezárása
 if (isset($stmt)) {
     $stmt->close();
 }

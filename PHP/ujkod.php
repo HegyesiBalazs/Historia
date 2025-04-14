@@ -6,7 +6,6 @@ require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/SMTP.php';
 
-// Névtér importálása
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -16,53 +15,52 @@ header('Content-Type: application/json');
 $email = $_POST['email'] ?? '';
 $valasz = ['sikeres' => false];
 
-// Adatbázis kapcsolat inicializálása
+error_log("ujkod.php: Email kapott: $email"); // Naplózás
+
 $db = new Adatbazis();
 $kapcsolat = $db->getKapcsolat();
 
 if (!empty($email)) {
-    // Ellenőrzés a regisztralas táblában, hogy létezik-e az email
     $stmt = $kapcsolat->prepare("SELECT * FROM regisztralas WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $eredmeny = $stmt->get_result();
 
     if ($eredmeny->num_rows > 0) {
-        $kod = bin2hex(random_bytes(4)); // 8 karakteres véletlenszerű kód
-        $lejarat = date('Y-m-d H:i:s', strtotime('+1 hour')); // 1 óra érvényesség
+        $kod = bin2hex(random_bytes(4));
+        $lejarat = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
-        // Kód mentése a jelszomodosit táblába
         $stmt = $kapcsolat->prepare("INSERT INTO jelszomodosit (kod, kod_lejar, reg_email) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE kod = ?, kod_lejar = ?");
         $stmt->bind_param("sssss", $kod, $lejarat, $email, $kod, $lejarat);
-        $stmt->execute();
+        if (!$stmt->execute()) {
+            error_log("SQL hiba: " . $stmt->error); // SQL hiba naplózása
+            $valasz['uzenet'] = "Hiba történt az adatbázis művelet során.";
+            echo json_encode($valasz);
+            exit();
+        }
 
-        // PHPMailer beállítása és e-mail küldése
-        $mail = new PHPMailer(true); // True: kivételkezelés bekapcsolása
-
+        $mail = new PHPMailer(true);
         try {
-            // SMTP beállítások
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // Gmail SMTP szerver
+            $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'marosvolgyimartin@gmail.com'; // A te email címed
-            $mail->Password = 'ddzv mjuj xfds ukds'; // Alkalmazásjelszó
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Titkosítás
-            $mail->Port = 587; // Portszám
+            $mail->Username = 'marosvolgyimartin@gmail.com';
+            $mail->Password = 'ddzv mjuj xfds ukds';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
 
-            // Feladó és címzett
-            $mail->setFrom('marosvolgyimartin@gmail.com', 'Historia'); // A te email címed
-            $mail->addAddress($email); // Címzett (a felhasználó e-mail címe)
+            $mail->setFrom('marosvolgyimartin@gmail.com', 'Historia');
+            $mail->addAddress($email);
 
-            // E-mail tartalom
-            $mail->isHTML(true); // HTML formátumú e-mail
+            $mail->isHTML(true);
             $mail->Subject = 'Jelszó visszaállítási kód';
             $mail->Body = "Kedves Felhasználó!<br><br>A jelszó visszaállítási kódod: <strong>$kod</strong><br>Érvényes: $lejarat-ig<br><br>Üdvözlettel,<br>Historia Csapata";
-            $mail->AltBody = "A kódod: $kod\nÉrvényes: $lejarat-ig"; // Szöveges verzió HTML nélküli klienseknek
+            $mail->AltBody = "A kódod: $kod\nÉrvényes: $lejarat-ig";
 
-            // E-mail küldése
             $mail->send();
             $valasz['sikeres'] = true;
         } catch (Exception $e) {
+            error_log("Email küldési hiba: " . $mail->ErrorInfo); // Email hiba naplózása
             $valasz['uzenet'] = "Hiba történt az e-mail küldése közben: " . $mail->ErrorInfo;
         }
     } else {
@@ -72,7 +70,6 @@ if (!empty($email)) {
     $valasz['uzenet'] = 'Add meg az email címedet!';
 }
 
-// Statement lezárása
 if (isset($stmt)) {
     $stmt->close();
 }
