@@ -953,15 +953,13 @@ h4 {
 .ketvhkozt_kepek{
     width: 65%;
     border-radius: 8%;
-    padding-top: 50px;
-    
     
 }
 
 #ducekep{
     width: 55%;
     border-radius: 5%;
-    padding-top: 50px;
+    
 }
 
 #hitler{
@@ -1027,7 +1025,7 @@ h4 {
 .hideghaboru_kepek{
     width: 65%;
     border-radius: 8%;
-    padding-top: 50px;
+    
 }
 
 #nato_vsz_Kontenerek{
@@ -1124,7 +1122,7 @@ h4 {
 #szovjet_szeteses{
     width: 90%;
     border-radius: 8%;
-    padding-top: 50px;
+    
 }
 
 /* Magyarország az első világháborúban betöltött szerepe és az azt követő időszak  */
@@ -1154,7 +1152,7 @@ h4 {
 .hu_elsovh_kepek{
     width: 65%;
     border-radius: 8%;
-    padding-top: 50px;
+    
 }
 
 #kun{
@@ -1182,39 +1180,10 @@ h4 {
 #trianon1{
     width: 90%;
     border-radius: 8%;
-    padding-top: 50px;
-}
-
-/* A második világháború */
-
-
-#masodikvh_body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: white;
-    background-image: url();
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat;
     
 }
 
-#masodikvh_header {
-    background: #333;
-    color: #fff;
-    padding: 20px ; 
-    text-align: center;
-    height: 120px;
-}
 
-.masodikvh_kepek{
-    width: 65%;
-    border-radius: 8%;
-    padding-top: 50px;
-}
 
 /* Horthy korszak */
 
