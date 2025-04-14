@@ -137,7 +137,7 @@ body{
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
-    min-height: 100vh; /* A body legalább a teljes képernyőmagasságot kitölti */
+    min-height: 100vh;/* A body legalább a teljes képernyőmagasságot kitölti */
     display: flex;
     flex-direction: column;
 
@@ -370,7 +370,7 @@ body{
     align-items: center;
     position: absolute;
     margin: 0;
-    top: 40%;
+    top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -422,6 +422,20 @@ body{
   }
 
   /* media */
+@media  screen and (max-width: 1200px) {
+    
+
+    .idovonal{
+        margin-top: 650px;
+    }
+    .eidovonal{
+        margin-top: 650px;
+    }
+    .idovonal_valaszto{
+        top: 50%;
+    }
+    
+}
 @media screen and (max-width: 900px) {
         /* body{
             max-width: 900px;
@@ -524,7 +538,9 @@ body{
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
-    
+    .slogen{
+        top: 40%;
+    }
 }
 
 /*rólunk rész*/
