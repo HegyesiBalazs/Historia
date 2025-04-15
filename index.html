@@ -94,17 +94,17 @@
         <span id="forgot-close" class="close">×</span>
         <h2>Elfelejtett jelszó</h2>
         <div id="forgot-message-container"></div>
-        <form id="forgot-password-form">
+        <form id="elfelejtett-jelszo-form" method="POST" action="ujkod.php">
             <label for="forgot-email"></label>
             <input type="email" id="forgot-email" class="input" placeholder="Email" autocomplete="off" name="email" required>
             <button class="gomb" type="submit">Kód küldése</button>
         </form>
-        <form id="reset-password-form" style="display: none;">
-            <label for="reset-code"></label>
-            <input type="text" id="reset-code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
-            <label for="new-password"></label>
-            <input type="password" id="new-password" class="input" placeholder="Új jelszó" autocomplete="off" name="new_password" required>
-            <p id="new-message" style="display: none;">A jelszó <span id="new-strength"></span></p>
+        <form id="uj-jelszo-form" style="display: none;">
+            <label for="code"></label>
+            <input type="text" id="code" class="input" placeholder="Ellenőrző kód" autocomplete="off" name="code" required>
+            <label for="new_password"></label>
+            <input type="password" id="new_password" class="input" placeholder="Új jelszó" autocomplete="off" name="new_password" required>
+            <p id="new-message" >A jelszó <span id="new-strength"></span></p>
             <button class="gomb" type="submit">Jelszó módosítása</button>
         </form>
     </div>
@@ -520,7 +520,7 @@
             <a href="https://x.com/SzilyHistoria" target="_blank" class="fa fa-twitter"></a>
             <a href="https://www.instagram.com/historia_a_szilyben/" class="fa fa-instagram" target="_blank"></a>
         </p>
-        </footer>
-    <script src="script.js" defer></script>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
