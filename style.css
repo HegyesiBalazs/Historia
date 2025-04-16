@@ -330,6 +330,14 @@ body{
     color: black;
 }
 
+.tovabb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
 .valasztogomb1{
     background-color: white; 
     color: black; 
