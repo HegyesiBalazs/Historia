@@ -767,6 +767,16 @@ p{
     margin-top: 5px;
 }
 
+.fooldalra_vissza{
+    font-size: 50px;
+    float: left;
+    margin-bottom: 200px;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    
+}
+
 /* első világháború */
 
 #elsovh_body {
@@ -780,6 +790,7 @@ p{
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -947,6 +958,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -1019,6 +1031,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -1146,6 +1159,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -1206,6 +1220,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -1313,6 +1328,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -1403,6 +1419,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
@@ -1433,6 +1450,7 @@ h4 {
     background-position: center; 
     background-attachment: fixed; 
     background-repeat: no-repeat;
+    text-align: justify;
     
 }
 
