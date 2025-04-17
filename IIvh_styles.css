@@ -11,6 +11,16 @@ body {
     background-repeat: no-repeat;
 }
 
+.fooldalra_vissza{
+    font-size: 50px;
+    float: left;
+    margin-bottom: 200px;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    
+}
+
 .container {
     max-width: 900px;
     margin: 20px auto;
